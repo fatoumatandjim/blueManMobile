@@ -1,0 +1,48 @@
+
+<ion-content>
+  <div class="background-pic">
+    <div class="background-filter">
+      <div class="shape"><img src="../..\assets\img\blu.png" /></div>
+  
+      <ion-card>
+        <ion-card-header>
+           
+        </ion-card-header> <br><br>
+        <ion-label>
+          <ion-label>
+  <h1 class="titleMenu">Inscription</h1>
+                  
+                </ion-label>
+          <p></p>
+        </ion-label>
+        <ion-card-content>
+          <form #form="ngForm" (ngSubmit)='signUPUser(form)'>
+          <ion-item>      <ion-icon color="primary" class="a" name="person"></ion-icon>
+            <ion-input name="prenom" ngModel type="text" placeholder="Entrer Votre prenom" #prenom="ngModel"></ion-input>
+          </ion-item>
+          <ion-item>      <ion-icon color="primary" class="a" name="person"></ion-icon>
+            <ion-input name="nom" ngModel type="text" placeholder="Entrer Votre nom" #nom="ngModel"></ion-input>
+          </ion-item>
+          <ion-item>      <ion-icon color="primary" class="a" name="person"></ion-icon>
+            <ion-input name="telephone" ngModel type="text" placeholder="Entrer Votre telephone" #telephone="ngModel"></ion-input>
+          </ion-item>
+          <ion-item>      <ion-icon  color="primary"name="mail"></ion-icon>
+            <ion-input name="login" ngModel type="text" placeholder="Entrer Votre login" #login="ngModel"></ion-input>
+          </ion-item>
+
+          <ion-item>   <ion-icon  color="primary"name="thermometer"></ion-icon>
+            <ion-input name="password" ngModel type="text" placeholder="Entrer Votre password" #password="ngModel"></ion-input>
+          </ion-item>
+  
+          <div class="bottom-section" >
+            <ion-button class="a"type="submit">inscrire</ion-button>
+       
+          </div>
+        </form>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+  
+  </ion-content>
+  

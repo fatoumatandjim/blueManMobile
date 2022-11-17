@@ -1,0 +1,28 @@
+.waviy span {
+    font-family: 'Alfa Slab One', cursive;
+    position: relative;
+    display: inline-block;
+    color:rgb(241, 151, 15);
+    text-transform: uppercase;
+    animation: waviy 1s infinite;
+    animation-delay: calc(.1s * var(--i));
+    text-align: center;
+    }
+    @keyframes waviy {
+    0%,40%,100% {
+      transform: translateY(0)
+    }
+    20% {
+      transform: translateY(-20px)
+    }
+    }
+    a{
+        text-align: center;
+    }
+
+    ion-header ion-list {
+      background: linear-gradient(90deg, rgb(0, 30, 199), rgb(17, 158, 252), );
+      border-radius: 20px;
+       height: 150%;
+    
+        }

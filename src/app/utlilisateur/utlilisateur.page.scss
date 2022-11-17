@@ -1,0 +1,28 @@
+ion-avatar {
+   
+  
+    margin-bottom: 5px;
+    border: 7px solid rgba(255, 166, 0, 0.808);
+}
+
+.titleMenu {
+    text-align: center;
+    margin: 20px 0px 0px 0px;
+    font-family: Impact, sans-serif;
+    font-size: 25px;
+    letter-spacing: 2px;
+    background: linear-gradient(90deg, rgb(1, 18, 117), rgb(10, 121, 224), #000);
+    background-repeat: no-repeat;
+    background-size: 80%;
+    animation: animate 3s infinite;
+    background-clip: text;
+    -webkit-text-fill-color: rgba(16, 240, 117, 0);
+  }
+  @keyframes animate {
+    0% {
+      background-position: -500%;
+    }
+    100% {
+      background-position: 500%;
+      }
+    }

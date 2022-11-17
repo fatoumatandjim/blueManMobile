@@ -1,0 +1,91 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>BlueMan</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+<ion-content><br>
+  <div class="waviy a">
+
+    <span style="--i:1">C</span>
+    <span style="--i:2">o</span>
+    <span style="--i:3">l</span>
+    <span style="--i:4">i</span>
+    <span style="--i:5">e</span>
+    <span style="--i:6">S</span>
+
+</div>
+   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button >
+    <ion-icon  id="open-modale" expand="block"name="add" ></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+<ion-modal trigger="open-modale" (willDismiss)="onWillDismiss($event)">
+  <ng-template>
+    <ion-header >
+      <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+          <ion-button (click)="cancel()">Cancel</ion-button>
+        </ion-buttons>
+        <ion-title>Colie</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="confirm()" [strong]="true">ajouter</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header><br><br>
+    <ion-content class="ion-padding">
+      <img src="assets/img/colie.png"/>
+      <ion-item>
+        <ion-label position="stacked">Nom</ion-label>
+        <ion-input type="text" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">No</ion-label>
+        <ion-input type="text" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Magazinier</ion-label>
+        <ion-input type="text"  ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Destinataire</ion-label>
+        <ion-input type="text"  ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Telephone</ion-label>
+        <ion-input type="hours"  ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Date</ion-label>
+        <ion-input type="date" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Description</ion-label>
+        <ion-input type="text" ></ion-input>
+      </ion-item>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+  <ion-list lines="inset" [inset]="true"  >
+    <ion-item  color="primary">
+      <ion-label>Nom</ion-label>
+      <ion-label>No</ion-label>
+      <ion-label>Destinataire</ion-label>
+      <ion-label>action</ion-label>
+    </ion-item>
+    <!-- *ngIf="item.etate=='livrer'" -->
+    <ion-item lines="inset"   *ngFor="let item of coliArrive" >
+      <ion-label>{{item.nom}}</ion-label>
+      <ion-label>1223MD</ion-label>
+      <ion-label>Ndjim</ion-label>
+      <ion-icon color="primary" name="pencil"></ion-icon>
+      <ion-icon color="warning"  name="eye"></ion-icon>
+      <ion-icon color="danger" name="trash"></ion-icon>
+    </ion-item>
+    
+  </ion-list>
+</ion-content>
+

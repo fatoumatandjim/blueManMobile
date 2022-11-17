@@ -1,0 +1,55 @@
+<ion-header [translucent]="true" >
+  <ion-toolbar class="main-header" >
+    <!-- style="height: 20%;" -->
+<!-- <img src="../..\assets\img\haut.jpg" style="margin-left: 90px;"> -->
+    <ion-buttons slot="start">
+      <ion-menu-button  *ngIf="loginData.profil =='chauffeur'" ></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>BlueMan</ion-title>
+    
+  </ion-toolbar>
+</ion-header><br><br>
+
+<ion-content>
+  <h1 class="titleMenu">Liste Colie</h1>
+  <div class="container">
+  <ion-grid> 
+    <ion-row> 
+    <ion-col>
+<ion-card *ngFor="let item of listcoli">
+   
+        
+    <ion-item >
+    
+    <ion-thumbnail slot="start">
+      <ion-avatar>
+        <img src="assets/img/coli.png"/>
+      </ion-avatar>
+     </ion-thumbnail>
+
+    
+    
+    <ion-label>
+      <!-- <h2>{{item.code}} <span style="float:right;color: rgb(20, 0, 109);" >{{item.telDest}}</span></h2>  -->
+    <h2>{{item.description}} <span style="float:right;color: rgb(20, 0, 109);" >{{item.trajet.departArrive}}</span></h2> 
+    <h2> <span style="float:right;color: rgb(44, 139, 6);font-size: 30px;" ><ion-icon name="checkmark-circle-outline"></ion-icon></span>
+      <ion-icon   style="color: rgb(20, 0, 109);"  name="star-outline"></ion-icon>  
+      <ion-icon   style="color:rgb(20, 0, 109);"  name="star-outline"></ion-icon>
+      <ion-icon   style="color: rgb(20, 0, 109);"  name="star-outline"></ion-icon>
+      <ion-icon   style="color: rgb(20, 0, 109);"  name="star-outline"></ion-icon>
+    
+    
+    </h2>
+
+  </ion-label>
+  </ion-item> <br>
+
+    
+
+</ion-card>
+    </ion-col> 
+  </ion-row> 
+</ion-grid>
+</div>
+</ion-content>

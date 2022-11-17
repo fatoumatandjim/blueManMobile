@@ -1,0 +1,37 @@
+<ion-header >
+
+</ion-header>
+<!-- style="height: 20%;" -->
+<img src="../..\assets\img\haut.jpg"  />
+<ion-content>
+  
+
+<ion-card >
+  <div align="center">
+    <ion-avatar>
+      <img src="assets/img/blu.png"/>
+    </ion-avatar>
+  </div>
+         <h1 class="titleMenu">Login</h1>
+         <ion-card-content>
+          <form  #loginForm="ngForm"  (ngSubmit)="connexion(loginForm)">
+            <ion-item><ion-icon  color="primary"name="mail"></ion-icon>
+             <ion-input name="login"  type="text" placeholder="Entrer login" ngModel></ion-input>
+            </ion-item><br>
+            <ion-item><ion-icon  color="primary"name="thermometer"></ion-icon>
+              <ion-input name="password"  type="password"
+              placeholder="Entrer mot de passe" ngModel></ion-input>
+            </ion-item>
+
+            <div class="bottom-section">
+              <ion-button type="submit" class="c"  >Connexion</ion-button>
+              <ion-button class="b" (click)="inscription()">inscription</ion-button>
+          
+            </div>
+          </form>
+         </ion-card-content>
+       </ion-card>
+    
+
+</ion-content>
+

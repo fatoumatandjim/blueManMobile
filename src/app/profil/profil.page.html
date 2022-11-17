@@ -1,0 +1,66 @@
+<ion-header [translucent]="true">
+  <ion-toolbar> 
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>BlueMan</ion-title>
+    
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+
+  <ion-toolbar >
+    <ion-buttons slot="start">
+     
+     <!-- <ion-back-button  defaultHref="/home"></ion-back-button> -->
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button fill="clear">Modifier</ion-button>
+     </ion-buttons>
+  </ion-toolbar>
+  <ion-grid class="main-header">
+    <div align="center">
+      <ion-avatar>
+        <img src="assets/img/blu.png" />
+      </ion-avatar>
+    </div>
+  </ion-grid>
+
+
+
+  <ion-list lines="full">
+    <ion-item>
+      <ion-label>
+        <ion-text>Nom</ion-text>
+        <p><ion-text color="success">{{loginData.nom}}</ion-text></p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <ion-text>prenom</ion-text>
+        <p><ion-text color="warning">{{loginData.prenom}}</ion-text></p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <ion-text>login</ion-text>
+        <p><ion-text color="dark">{{loginData.login}}</ion-text></p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <ion-text>profil</ion-text>
+        <p><ion-text color="dark">{{loginData.profil}}</ion-text></p>
+      </ion-label>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label>
+        <ion-text>Etat</ion-text>
+     
+      </ion-label>
+      <ion-icon color="success"name="radio-button-on"></ion-icon>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
