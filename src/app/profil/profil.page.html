@@ -1,23 +1,23 @@
 <ion-header [translucent]="true">
   <ion-toolbar> 
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+    <ion-buttons slot="start"><ion-icon  routerLink="/accueil" name="arrow-back-outline" style="color: rgb(249, 247, 253);font-size: 25px;"></ion-icon>
+      <ion-menu-button *ngIf="loginData.profil =='chauffeur'"></ion-menu-button>
     </ion-buttons>
-    <ion-title>BlueMan</ion-title>
+    <ion-title style="color: rgb(255, 255, 255)">BlueMan</ion-title>
     
   </ion-toolbar>
-</ion-header>
+</ion-header><br>
 <ion-content [fullscreen]="true">
+  <ion-icon name="create-outline" routerLink="/modifie/{{loginData.idUtilisateur}}" style="float:right;color: rgb(44, 139, 6);font-size: 30px;"></ion-icon>
 
-  <ion-toolbar >
     <ion-buttons slot="start">
      
      <!-- <ion-back-button  defaultHref="/home"></ion-back-button> -->
     </ion-buttons>
     <ion-buttons slot="end">
-      <ion-button fill="clear">Modifier</ion-button>
+   
      </ion-buttons>
-  </ion-toolbar>
+
   <ion-grid class="main-header">
     <div align="center">
       <ion-avatar>
@@ -61,6 +61,14 @@
       </ion-label>
       <ion-icon color="success"name="radio-button-on"></ion-icon>
     </ion-item>
+    <div class="deconnexion">
+        
+      <ion-button color="danger" slot="end" (click)="presentAlert()">
+        <ion-icon style="width: 30px; " name="power-outline"></ion-icon>
+      </ion-button>
+   
+
+  </div>
   </ion-list>
 
 </ion-content>

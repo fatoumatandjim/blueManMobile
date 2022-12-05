@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title style="color: white">BlueMan</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button *ngIf="loginData.profil =='chauffeur'" style="color: white"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+ 
+</ion-header>
+
+
+ 
+  <ion-content class="ion-padding"><ion-icon   routerLink="/profil" name="arrow-back-outline" style="color: rgb(23, 0, 77);font-size: 25px;"></ion-icon>
+ modifier
+ <div align="center">
+  <ion-avatar>
+    <img src="assets/img/blu.png" />
+  </ion-avatar>
+</div>
+     
+    <br><br>
+    <form #editForm="ngForm">
+     <ion-item>
+       <ion-label position="stacked"> Prenom</ion-label>
+       <ion-input type="text" name="prenom" ngModel [(ngModel)]="loginData.prenom" ></ion-input>
+     </ion-item>
+     
+     <ion-item>
+       <ion-label position="stacked">nom</ion-label>
+       <ion-input type="text" name="prenom" ngModel [(ngModel)]="loginData.nom"></ion-input>
+     </ion-item>
+     <ion-item>
+      <ion-label position="stacked">telephone</ion-label>
+      <ion-input type="telephone" name="telephone" ngModel [(ngModel)]="loginData.telephone"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">login</ion-label>
+      <ion-input type="text" name="login" ngModel [(ngModel)]="loginData.login"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">password</ion-label>
+      <ion-input type="text" name="password" ngModel [(ngModel)]="loginData.password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">adresse</ion-label>
+      <ion-input type="text" name="adresse" ngModel [(ngModel)]="loginData.adresse"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">genre</ion-label>
+      <ion-input type="text" name="genre" ngModel [(ngModel)]="loginData.genre"></ion-input>
+    </ion-item>
+  
+  <br><br>
+     <ion-button shape="round">Fermer</ion-button>
+     <ion-button type="submit" shape="round" style="float:right;" (click)="presentAlert()" >Ajouter</ion-button>
+    </form>
+   </ion-content>
+

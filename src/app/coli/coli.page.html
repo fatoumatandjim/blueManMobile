@@ -1,32 +1,32 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="primary">
+  <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-menu-button style="color: white"></ion-menu-button>
     </ion-buttons>
-    <ion-title>BlueMan</ion-title>
+    <ion-title style="color: white">BlueMan</ion-title>
 
   </ion-toolbar>
 </ion-header>
 <ion-content><br>
-  <div class="waviy a">
 
-    <span style="--i:1">C</span>
-    <span style="--i:2">o</span>
-    <span style="--i:3">l</span>
-    <span style="--i:4">i</span>
-    <span style="--i:5">e</span>
-    <span style="--i:6">S</span>
 
-</div>
+
+
+
+
+  
+  <img src="assets/img/circulaire.png"  style="float:right;height: 30px;"  routerLink="/colicour"/>
+
+  
    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
   <ion-fab-button >
-    <ion-icon  id="open-modale" expand="block"name="add" ></ion-icon>
+    <ion-icon  routerLink="/ajouter"expand="block"name="add" ></ion-icon>
   </ion-fab-button>
 </ion-fab>
-<ion-modal trigger="open-modale" (willDismiss)="onWillDismiss($event)">
+<!-- <ion-modal trigger="open-modale" (willDismiss)="onWillDismiss($event)">
   <ng-template>
     <ion-header >
-      <ion-toolbar color="primary">
+      <ion-toolbar style="background-color: red">
         <ion-buttons slot="start">
           <ion-button (click)="cancel()">Cancel</ion-button>
         </ion-buttons>
@@ -68,24 +68,207 @@
       </ion-item>
     </ion-content>
   </ng-template>
-</ion-modal>
-  <ion-list lines="inset" [inset]="true"  >
+</ion-modal> -->
+  <!-- <ion-list lines="inset" [inset]="true"  >
     <ion-item  color="primary">
       <ion-label>Nom</ion-label>
       <ion-label>No</ion-label>
       <ion-label>Destinataire</ion-label>
       <ion-label>action</ion-label>
     </ion-item>
-    <!-- *ngIf="item.etate=='livrer'" -->
-    <ion-item lines="inset"   *ngFor="let item of coliArrive" >
-      <ion-label>{{item.nom}}</ion-label>
-      <ion-label>1223MD</ion-label>
-      <ion-label>Ndjim</ion-label>
+
+    <ion-item lines="inset"   *ngFor="let item of listcoli" >
+      <ion-label>{{item.description}}</ion-label>
+      <ion-label>{{item.ref}}</ion-label>
+      <ion-label>item.magazin.nom</ion-label>
       <ion-icon color="primary" name="pencil"></ion-icon>
       <ion-icon color="warning"  name="eye"></ion-icon>
       <ion-icon color="danger" name="trash"></ion-icon>
     </ion-item>
     
-  </ion-list>
+  </ion-list> -->
+
+ 
+
+   
+
+    
+   
+
+  <ion-modal [isOpen]="isOpen" >
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Modal</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="isOpen= false">Close</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <div class="wrapper">   <h1>{{coli.description}}</h1>
+          <!-- <ion-avatar >
+          <img src="assets/img/livre.png" />
+         
+        </ion-avatar> -->
+         
+          <ion-row >
+            <ion-col>
+   
+             
+          </ion-col>
+          </ion-row >
+            <div align="center">
+           
+                <!-- <img src="assets/img/cc.png"alt="img" class="img" style="height: 120px;width: 100% ;"/>      -->
+          
+                
+                    
+               
+             
+            </div>
+        
+            <ion-grid class="main-header">
+              <div align="center">
+                <ion-avatar>
+                  <img src="assets/img/blu.png" />
+                </ion-avatar>
+              </div>
+            </ion-grid>
+          
+          
+          
+            <ion-list lines="full">
+              <ion-item>
+                <ion-label>
+                  <ion-text>Nom</ion-text>
+                  <p><ion-text color="success">{{coli.description}}</ion-text></p>
+                </ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-label>
+                  <ion-text>code</ion-text>
+                  <p><ion-text color="warning">{{coli.code}}</ion-text></p>
+                </ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-label>
+                  <ion-text>telExp</ion-text>
+                  <p><ion-text color="dark">{{coli.telExp}}</ion-text></p>
+                </ion-label>
+              </ion-item>
+             
+              <ion-item>
+                <ion-label>
+                  <ion-text>telDest</ion-text>
+                  <p><ion-text color="dark">{{coli.telDest}} </ion-text></p>
+                </ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-label>
+                  <ion-text>trajet</ion-text>
+                  <p><ion-text color="dark">{{coli.trajet.nom}}    </ion-text></p>
+                </ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-label>
+                  <ion-text>chauffeur</ion-text>
+                  <p><ion-text color="dark">{{coli.utilisateur.nom}}   {{coli.utilisateur.prenom}} </ion-text></p>
+                </ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-label>
+                  <ion-text>Etat</ion-text>
+               
+                </ion-label>
+                <ion-icon color="success"name="information-circle-outline"></ion-icon>
+              </ion-item>
+            
+            </ion-list>
+          
+
+
+
+    
+     
+        </div>
+      </ion-content>
+    </ng-template>
+    </ion-modal>
+
+
+    <ion-grid class="ion-margin-top">
+    <ion-item lines="none" color="light">
+      
+      <div class="waviy a">
+  
+        <span style="--i:1">A</span>
+        <span style="--i:2">r</span>
+        <span style="--i:3">r</span>
+        <span style="--i:4">i</span>
+        <span style="--i:6">v</span>
+        <span style="--i:6">e</span>
+        <span style="--i:6">e</span>
+    </div>
+   
+    </ion-item>
+    <!-- <ion-row >
+      <ion-slides >
+        <ion-slide >
+          <div>
+          <ion-card class="bgCard a" [routerLink]="[]"  *ngFor="let item of trajetCour" >
+        
+            <ion-card-header>
+              <ion-label>
+                <ion-label>
+                {{item.departArrive}}
+                  <p>heure:{{item.heureDep}}</p>
+                </ion-label>
+              </ion-label>
+            </ion-card-header>
+            <ion-card-content>
+              <img src="assets/img/v.jpg" />
+              <ion-icon  color="primary"name="call" ></ion-icon>
+            </ion-card-content>
+      
+          </ion-card>
+          
+        </div>
+        </ion-slide>
+      </ion-slides>
+    </ion-row> -->
+    <ion-searchbar [(ngModel)]="searchText"></ion-searchbar>
+  
+    <ion-row>
+      <!-- <ion-col size="6" *ngFor="let item of listcoli | filter:searchText"> -->
+      <ion-col size="6" *ngFor="let item of  listcoli | filter:searchText" >
+        <ion-card class="ion-text-center"  style="margin:2% auto ;" > 
+          <div align="center">
+            <ion-row >
+              <img src="assets/img/cour.jpg"alt="img" (click)="detailsColie(item.idColis)"  class="img" style="height: 120px;width: 100% ;"/> 
+              <!-- <ion-button  style="display: none;"></ion-button>               -->
+            </ion-row>   <br>            
+            <ion-row class="row">
+              <!-- <ion-img src="..\assets\images\silhouette-de-forme-simple-de-coeur.png" style="width: 15px;"></ion-img> -->
+              <ion-label color="dark"  class="label" style="margin-left: 5%;color: rgb(2, 4, 100);font-size: 15px;">{{item.description}}</ion-label><br><br>
+             
+            
+              <!-- <ion-img src="..\assets\images\panier (2).png" style="width: 20px;"></ion-img> -->
+              <ion-icon   style="color: rgb(218, 149, 0);"  name="star-outline"></ion-icon>  
+              <ion-icon   style="color:rgb(218, 149, 0);"  name="star-outline"></ion-icon>
+              <ion-icon   style="color: rgb(218, 149, 0);"  name="star-outline"></ion-icon>
+              <ion-icon   style="color: rgb(218, 149, 0);"  name="star-outline"></ion-icon>
+            </ion-row>
+          </div>
+        </ion-card>
+          </ion-col>
+        </ion-row>
+      
+  </ion-grid>
+  
+  
+
+
+
 </ion-content>
 

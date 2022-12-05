@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { IonModal } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
 import { MonserviceService } from '../monservice.service';
+import { AnimationController } from '@ionic/angular';
 @Component({
   selector: 'app-coli',
   templateUrl: './coli.page.html',
@@ -28,17 +30,58 @@ export class ColiPage implements OnInit {
       this.message = `Hello, ${ev.detail.data}!`;
     }
   }
-  constructor(private monservice:MonserviceService) { }
-  coliArrive:any;
-  ngOnInit() {
-    this.AlltrajetArriver();
+
+  
+  constructor(private monservice:MonserviceService,private route:ActivatedRoute,private animationCtrl: AnimationController) { 
+    const button = document.getElementById('open-custom-dialog');
+
+    button?.addEventListener('click', function handleClick(event) {
+      console.log('button clicked');
+      console.log(event);
+      console.log(event.target);
+    });
   }
-  AlltrajetArriver(){
-    console.log("ok")
-    this.monservice.getColi().subscribe((data)=>{
-      console.log(data)
-      this.coliArrive= data
-   
+  coliArrive:any;
+  loginData:any;
+  id:any;
+  listcolie:any;
+  listcoli:any;
+  listcolicour:any;
+  coli:any;
+  colicours:any;
+  searchText:any;
+  isOpen = false;
+  ngOnInit() {
+    this.loginData=JSON.parse(localStorage["isLogin"]);
+    // console.log(this.loginData.idUtilisateur)
+    this.id = this.route.snapshot.params['id'];
+    console.log(this.loginData.idUtilisateur)
+    this.monservice.utilisateurById(this.loginData.idUtilisateur).subscribe(data => {
+      this.listcolie=data
+      console.log(this.listcolie)
+     });
+    
+    this.coliParChauffeurArrive();
+
+  }
+ 
+  coliParChauffeurArrive(){
+    this.monservice.colieByChauffeurarrive(this.loginData.idUtilisateur).subscribe((data)=>{
+    
+    this.listcoli= data
+    console.log(this.listcoli)
     })
   }
+  detailsColie(dat:any){
+   
+    this.monservice.colieById(dat).subscribe((data)=>{
+      this.isOpen=true
+      this.coli= data
+      console.log(this.coli)
+      
+      })
+
+}
+
+
 }

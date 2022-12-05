@@ -1,0 +1,61 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button style="color: white"></ion-menu-button>
+    </ion-buttons>
+    <ion-title style="color: white">BlueMan</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ 
+  <ion-content class="ion-padding"><ion-icon   routerLink="/coli" name="arrow-back-outline" style="color: rgb(23, 0, 77);font-size: 25px;"></ion-icon>
+    Ajouter Un Colie
+  
+      <ion-avatar style="align-items: center;height: 200px; width: 200px;">
+        <img src="assets/img/w.jpg"/>
+      </ion-avatar>
+     
+    <br><br>
+    <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+     <ion-item>
+       <ion-label position="stacked"> description</ion-label>
+       <ion-input type="text" name="description" ngModel #description="ngModel" ></ion-input>
+     </ion-item>
+     
+  
+     <ion-item>
+      <ion-label position="stacked">telExp</ion-label>
+      <ion-input type="telephone" name="telExp" ngModel #telExp="ngModel"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">telDest</ion-label>
+      <ion-input type="text" name="telExp" ngModel #telExp="ngModel"></ion-input>
+    </ion-item>
+
+     <ion-item>
+      <option value="">--Selectionner un trajet--</option>
+      <ion-select placeholder="Select Trajet"   name="idTrajet" ngModel #parc="ngModel">
+        <ion-select-option  *ngFor="let item of trajet" value="{{item.idTrajet}}">{{item.departArrive}}  {{item.code}}</ion-select-option>
+       
+      </ion-select>
+    </ion-item>
+     <!-- <ion-item>
+      <div class="row mb-3">
+       <div class="form-group ">
+           <label>Trajet</label>
+           <select id="profil" class="form-control" name="idUtilisateur" ngModel #parc="ngModel">
+ <option value="">--Selectionner un Chauffeur--</option>
+ <option *ngFor="let item of trajet" value="{{item.idTrajet}}">{{item.departArrive}}</option>
+ </select>
+       </div>
+   </div>
+    </ion-item> -->
+     
+  <br><br>
+     <ion-button shape="round">Fermer</ion-button>
+     <ion-button type="submit" shape="round" style="float:right;" >Ajouter</ion-button>
+    </form>
+   </ion-content>
+</ion-content>

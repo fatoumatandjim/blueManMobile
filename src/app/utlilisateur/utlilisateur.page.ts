@@ -12,6 +12,9 @@ export class UtlilisateurPage implements OnInit {
   id:any;
   listcoli:any;
   listcolie:any;
+  listcolicour:any;
+  searchText:any;
+  isOpen = false;
   constructor(private monservice:MonserviceService,private route:ActivatedRoute) { }
 
   ngOnInit() {
@@ -24,15 +27,24 @@ export class UtlilisateurPage implements OnInit {
       console.log(this.listcolie)
      });
     
-  this.coliParUtilisateur();
+  this.coliParUtilisateurArrive();
+  this. coliParUtilisateurCours();
   }
 
 
-  coliParUtilisateur(){
+  coliParUtilisateurArrive(){
     this.monservice.colieByUtilisateur(this.loginData.idUtilisateur).subscribe((data)=>{
     
     this.listcoli= data
     console.log(this.listcoli)
     })
   }
+  coliParUtilisateurCours(){
+    this.monservice.colieByUtilisateurCours(this.loginData.idUtilisateur).subscribe((data)=>{
+    
+    this.listcolicour= data
+    console.log(this.listcolicour)
+    })
+  }
+
 }

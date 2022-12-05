@@ -1,0 +1,188 @@
+<ion-header [translucent]="true" >
+  <ion-toolbar class="main-header">
+    <!-- style="height: 20%;" -->
+<!-- <img src="../..\assets\img\haut.jpg" style="margin-left: 90px;"> -->
+    <ion-buttons slot="start">
+      <ion-menu-button  style="color: white"></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title style="color: white">BlueMan</ion-title>
+    
+  </ion-toolbar>
+</ion-header><br><br>
+
+<ion-content>
+
+
+
+  <ion-modal [isOpen]="isOpen" >
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Modal</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="isOpen= false">Close</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <div class="wrapper">   <h1>{{colicours.description}}</h1>
+          <!-- <ion-avatar >
+          <img src="assets/img/livre.png" />
+         
+        </ion-avatar> -->
+         
+          <ion-row >
+            <ion-col>
+   
+             
+          </ion-col>
+          </ion-row >
+            <div align="center">
+           
+                <!-- <img src="assets/img/cc.png"alt="img" class="img" style="height: 120px;width: 100% ;"/>      -->
+          
+                
+                    
+               
+             
+            </div>
+        
+            <ion-grid class="main-header">
+              <div align="center">
+                <ion-avatar>
+                  <img src="assets/img/blu.png" />
+                </ion-avatar>
+              </div>
+            </ion-grid>
+          
+          
+          
+            <ion-list lines="full">
+              <ion-item>
+                <ion-label>
+                  <ion-text>Nom</ion-text>
+                  <p><ion-text color="success">{{colicours.description}}</ion-text></p>
+                </ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-label>
+                  <ion-text>code</ion-text>
+                  <p><ion-text color="warning">{{colicours.code}}</ion-text></p>
+                </ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-label>
+                  <ion-text>telExp</ion-text>
+                  <p><ion-text color="dark">{{colicours.telExp}}</ion-text></p>
+                </ion-label>
+              </ion-item>
+             
+              <ion-item>
+                <ion-label>
+                  <ion-text>telDest</ion-text>
+                  <p><ion-text color="dark">{{colicours.telDest}} </ion-text></p>
+                </ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-label>
+                  <ion-text>trajet</ion-text>
+                  <p><ion-text color="dark">{{colicours.trajet.nom}}    </ion-text></p>
+                </ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-label>
+                  <ion-text>chauffeur</ion-text>
+                  <p><ion-text color="dark">{{colicours.utilisateur.nom}}   {{colicours.utilisateur.prenom}} </ion-text></p>
+                </ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-label>
+                  <ion-text>Etat</ion-text>
+               
+                </ion-label>
+                <ion-icon color="success"name="information-circle-outline"></ion-icon>
+              </ion-item>
+            
+            </ion-list>
+          
+
+
+
+    
+     
+        </div>
+      </ion-content>
+    </ng-template>
+    </ion-modal>
+
+  <ion-grid class="ion-margin-top">
+    <ion-item lines="none" color="light">
+      <ion-icon   routerLink="/coli" name="arrow-back-outline" style="color: rgb(23, 0, 77);font-size: 25px;"></ion-icon>
+      <div class="waviy a">
+  
+        <span style="--i:1">C</span>
+        <span style="--i:2">o</span>
+        <span style="--i:3">u</span>
+        <span style="--i:4">r</span>
+        <span style="--i:6">S</span>
+    </div>
+   
+    </ion-item>
+    <!-- <ion-row >
+      <ion-slides >
+        <ion-slide >
+          <div>
+          <ion-card class="bgCard a" [routerLink]="[]"  *ngFor="let item of trajetCour" >
+        
+            <ion-card-header>
+              <ion-label>
+                <ion-label>
+                {{item.departArrive}}
+                  <p>heure:{{item.heureDep}}</p>
+                </ion-label>
+              </ion-label>
+            </ion-card-header>
+            <ion-card-content>
+              <img src="assets/img/v.jpg" />
+              <ion-icon  color="primary"name="call" ></ion-icon>
+            </ion-card-content>
+      
+          </ion-card>
+          
+        </div>
+        </ion-slide>
+      </ion-slides>
+    </ion-row> -->
+  
+    <ion-row>
+      <ion-col size="6" *ngFor="let item of listcolicour">
+        <ion-card class="ion-text-center"  style="margin:2% auto ;" > <ion-icon name="checkmark-circle-outline"  (click)="presentAlert(item.idColis)" style="margin-left: 85%;color: rgba(6, 128, 6, 0.623);font-size: 20px;"></ion-icon>     
+          <div align="center">
+            <ion-row >
+              <!-- <img src="assets/img/cc.png"alt="img" class="img" style="height: 120px;width: 100% ;"/>      -->
+        
+                <ion-avatar style="align-items: center;margin-left: 50px;">
+                  <img src="assets/img/livre.png"    class="open-custom-dialog" (click)="detailsColiecours(item.idColis)"/>
+                </ion-avatar>
+                  
+            </ion-row>   <br>            
+            <ion-row class="row">
+              <!-- <ion-img src="..\assets\images\silhouette-de-forme-simple-de-coeur.png" style="width: 15px;"></ion-img> -->
+              <ion-label color="dark"  class="label" style="margin-left: 5%;color: rgb(2, 4, 100);font-size: 15px;">{{item.description}}</ion-label><br><br>
+             
+             <ion-label color="dark" class="label"  style="margin-left: 5%;color: rgb(248, 168, 20);font-size: 15px;">{{item.heureDep}}</ion-label> 
+              <!-- <ion-img src="..\assets\images\panier (2).png" style="width: 20px;"></ion-img> -->
+              <ion-icon   style="color: rgb(218, 149, 0);"  name="star-outline"></ion-icon>  
+              <ion-icon   style="color:rgb(218, 149, 0);"  name="star-outline"></ion-icon>
+              <ion-icon   style="color: rgb(218, 149, 0);"  name="star-outline"></ion-icon>
+              <ion-icon   style="color: rgb(218, 149, 0);"  name="star-outline"></ion-icon>
+            </ion-row>
+          </div>
+        </ion-card>
+          </ion-col>
+        </ion-row>
+      
+  </ion-grid>
+  
+</ion-content>

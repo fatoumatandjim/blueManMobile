@@ -1,23 +1,28 @@
 <ion-header [translucent]="true" >
-  <ion-toolbar class="main-header" >
+  <ion-toolbar class="main-header">
     <!-- style="height: 20%;" -->
 <!-- <img src="../..\assets\img\haut.jpg" style="margin-left: 90px;"> -->
-    <ion-buttons slot="start">
-      <ion-menu-button  *ngIf="loginData.profil =='chauffeur'" ></ion-menu-button>
-    </ion-buttons>
 
-    <ion-title>BlueMan</ion-title>
+
+    <ion-title style="color: white"> BlueMan</ion-title>
     
   </ion-toolbar>
 </ion-header><br><br>
-
+<ion-icon   routerLink="/accueil" name="arrow-back-outline" style="color: rgb(23, 0, 77);font-size: 25px;"></ion-icon>
 <ion-content>
+ 
+      <ion-icon style="margin-right: 20px;color: rgb(26, 0, 97);font-size: 30px;" routerLink="/profil" name="person"></ion-icon>
+  
+  <img src="assets/img/circulaire.png" *ngIf="loginData.profil =='client'" routerLink="/utilisateurcolicour"  style="float:right;height: 30px;"  id="open-modal"/>
+
+ 
   <h1 class="titleMenu">Liste Colie</h1>
   <div class="container">
+    <ion-searchbar [(ngModel)]="searchText"></ion-searchbar>
   <ion-grid> 
     <ion-row> 
     <ion-col>
-<ion-card *ngFor="let item of listcoli">
+<ion-card *ngFor="let item of listcoli | filter:searchText">
    
         
     <ion-item >
@@ -52,4 +57,8 @@
   </ion-row> 
 </ion-grid>
 </div>
+
+
+
+
 </ion-content>

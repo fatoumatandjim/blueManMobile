@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title style="color: white">ajout</ion-title>
+    
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding"><ion-icon   routerLink="/trajet" name="arrow-back-outline" style="color: rgb(23, 0, 77);font-size: 25px;"></ion-icon>
+  Ajouter Un Trajet
+
+      <img src="assets/img/tt.jpg"/>
+   
+   
+  <br><br>
+  <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+   <ion-item>
+     <ion-label position="stacked">Ville de depart</ion-label>
+     <ion-input type="text" name="departArrive" ngModel #departArrive="ngModel" ></ion-input>
+   </ion-item>
+   
+   <ion-item>
+     <ion-label position="stacked">heureDep</ion-label>
+     <ion-input type="date" name="heureDep" ngModel #heureDep="ngModel"></ion-input>
+   </ion-item>
+   
+   <ion-item>
+    <option value="">--Selectionner un parc--</option>
+    <ion-select placeholder="Select parc"   name="idParc" ngModel #parc="ngModel">
+      <ion-select-option  *ngFor="let item of park" value="{{item.idParc}}">{{item.nom}}</ion-select-option>
+     
+    </ion-select>
+  </ion-item>
+   
+<br><br>
+   <ion-button shape="round">Fermer</ion-button>
+   <ion-button type="submit" shape="round" style="float:right;" >Ajouter</ion-button>
+  </form>
+ </ion-content>

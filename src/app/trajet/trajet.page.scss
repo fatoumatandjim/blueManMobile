@@ -1,11 +1,109 @@
-ion-item {
-    --padding-start: 0;
+.waviy span {
+  font-family: 'Alfa Slab One', cursive;
+  position: relative;
+  display: inline-block;
+  color:rgb(241, 151, 15);
+  text-transform: uppercase;
+  animation: waviy 1s infinite;
+  animation-delay: calc(.1s * var(--i));
+  text-align: center;
   }
-  
-  /* iOS places the subtitle above the title */
-  ion-card-header.ios {
-    display: flex;
-    flex-flow: column-reverse;
+  @keyframes waviy {
+  0%,40%,100% {
+    transform: translateY(0)
+  }
+  20% {
+    transform: translateY(-20px)
+  }
+  }
+  a{
+      text-align: center;
   }
 
+  ion-header ion-list {
+    background: linear-gradient(90deg, rgb(0, 30, 199), rgb(17, 158, 252), );
+    border-radius: 20px;
+     height: 150%;
   
+      }
+      ion-modal {
+        --height: 50%;
+        --border-radius: 16px;
+        --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      }
+      
+      ion-modal::part(backdrop) {
+        background: rgba(209, 213, 219);
+        opacity: 1;
+      }
+      
+      ion-modal ion-toolbar {
+        --background: rgba(1, 11, 102, 0.945);
+        --color: white;
+      }
+
+      ion-header{
+        ion-toolbar{
+       --background: #002975;
+        }
+    }
+    ion-avatar {
+ 
+
+      margin-bottom: 5px;
+      border: 7px solid rgba(255, 166, 0, 0.808);
+  }
+
+  ion-modal#example-modal {
+    --width: fit-content;
+    --min-width: 250px;
+    --height: fit-content;
+    --border-radius: 6px;
+    --box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
+  }
+  
+  ion-modal#example-modal h1 {
+    margin: 20px 20px 10px 20px;
+  }
+  
+  ion-modal#example-modal ion-icon {
+    margin-right: 6px;
+  
+    width: 48px;
+    height: 48px;
+  
+    padding: 4px 0;
+  
+    color: #aaaaaa;
+  }
+  
+  ion-modal#example-modal .wrapper {
+    margin-bottom: 10px;
+  }
+
+  .titleMenu {
+    text-align: center;
+    margin: 20px 0px 0px 0px;
+    font-family: Impact, sans-serif;
+    font-size: 25px;
+    letter-spacing: 2px;
+    background: linear-gradient(90deg, rgb(1, 18, 117), rgb(10, 121, 224), #000);
+    background-repeat: no-repeat;
+    background-size: 80%;
+    animation: animate 3s infinite;
+    background-clip: text;
+    -webkit-text-fill-color: rgba(16, 240, 117, 0);
+  }
+  @keyframes animate {
+    0% {
+      background-position: -500%;
+    }
+    100% {
+      background-position: 500%;
+      }
+    }
+    ion-fab{
+      ion-fab-button{
+       --background: #002975;
+      }
+    }

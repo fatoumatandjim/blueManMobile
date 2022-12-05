@@ -1,19 +1,19 @@
 <ion-header [translucent]="true" >
-  <ion-toolbar class="main-header" >
+  <ion-toolbar>
     <!-- style="height: 20%;" -->
 <!-- <img src="../..\assets\img\haut.jpg" style="margin-left: 90px;"> -->
     <ion-buttons slot="start">
-      <ion-menu-button  *ngIf="loginData.profil =='chauffeur'" ></ion-menu-button>
+      <ion-menu-button style="color: white" *ngIf="loginData.profil =='chauffeur'" ></ion-menu-button>
     </ion-buttons>
 
-    <ion-title>BlueMan</ion-title>
+    <ion-title style="color: white">BlueMan</ion-title>
     
   </ion-toolbar>
 </ion-header>
 <ion-content class="ion-padding">
 
   <div class="popover">
-     <ion-searchbar></ion-searchbar>
+     <ion-searchbar [(ngModel)]="searchText"></ion-searchbar>
   </div>
   <ion-grid class="ion-margin-top">
   <ion-item lines="none" color="light">
@@ -55,11 +55,14 @@
   </ion-row> -->
 
   <ion-row>
-    <ion-col size="6" *ngFor="let item of trajetCour"  >
-      <ion-card class="ion-text-center"  style="margin:2% auto ;" >    <ion-icon name="close-outline"   style="margin-left: 85%;color: rgba(253, 13, 13, 0.829);font-size: 20px;"></ion-icon>     
+    <ion-col size="6" *ngFor="let item of trajetCour | filter:searchText">
+      <ion-card class="ion-text-center"  style="margin:2% auto ;" >  
+      
+         <ion-icon name="call-outline" style="color: rgba(22, 151, 238, 0.829);font-size: 20px;"></ion-icon>  
+         <ion-label color="dark"  class="label" style="margin-left: 5%;color:rgb(6, 151, 235);font-size: 15px;"> {{item.utilisateur.telephone}}</ion-label>
         <div align="center">
           <ion-row >
-            <img src="assets/img/v.jpg"alt="img" class="img" style="height: 120px;width: 100% ;"/>               
+            <img src="assets/img/aa.png"alt="img" class="img" style="height: 120px;width: 100% ;"/>               
           </ion-row>               
           <ion-row class="row"><ion-icon style="margin-left: 5%;color: rgb(6, 151, 235);font-size: 18px;" name="location-outline"></ion-icon>
             <!-- <ion-img src="..\assets\images\silhouette-de-forme-simple-de-coeur.png" style="width: 15px;"></ion-img> -->

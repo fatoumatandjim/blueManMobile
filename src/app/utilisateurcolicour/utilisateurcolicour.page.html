@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title style="color:white">BlueMan</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-icon   routerLink="/utlilisateur" name="arrow-back-outline" style="color: rgb(23, 0, 77);font-size: 25px;"></ion-icon>
+<ion-content>
+<H1 class="titleMenu">Colie en cours</H1>
+<ion-searchbar [(ngModel)]="searchText"></ion-searchbar>
+  <ion-list>
+    <ion-card *ngFor="let item of listcoliUtilisateurcour | filter:searchText">
+ 
+  
+      <ion-item >
+      
+      <ion-thumbnail slot="start">
+        <ion-avatar>
+          <img src="assets/img/coli.png"/>
+        </ion-avatar>
+       </ion-thumbnail>
+  
+      
+      
+      <ion-label>
+        <!-- <h2>{{item.code}} <span style="float:right;color: rgb(20, 0, 109);" >{{item.telDest}}</span></h2>  -->
+      <h2>{{item.description}} <span style="float:right;color: rgb(20, 0, 109);" >{{item.trajet.departArrive}}</span></h2> 
+      <h2> <span style="float:right;color: rgb(44, 139, 6);font-size: 30px;" >  <ion-icon  name="reload-outline" style="float:right;color: rgb(163, 0, 0);font-size: 30px;" ></ion-icon></span>
+        <ion-icon   style="color: rgb(20, 0, 109);"  name="star-outline"></ion-icon>  
+        <ion-icon   style="color:rgb(20, 0, 109);"  name="star-outline"></ion-icon>
+        <ion-icon   style="color: rgb(20, 0, 109);"  name="star-outline"></ion-icon>
+        <ion-icon   style="color: rgb(20, 0, 109);"  name="star-outline"></ion-icon>
+      
+      
+      </h2>
+  
+    </ion-label>
+    </ion-item> <br>
+  
+      
+  
+  </ion-card>
+    
+  </ion-list>
+</ion-content>

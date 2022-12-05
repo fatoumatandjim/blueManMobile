@@ -4,7 +4,11 @@ ion-avatar {
     margin-bottom: 5px;
     border: 7px solid rgba(255, 166, 0, 0.808);
 }
-
+ion-header{
+  ion-toolbar{
+ --background: #002975;
+  }
+}
 .titleMenu {
     text-align: center;
     margin: 20px 0px 0px 0px;
@@ -25,4 +29,20 @@ ion-avatar {
     100% {
       background-position: 500%;
       }
+    }
+
+    ion-modal {
+      --height: 50%;
+      --border-radius: 16px;
+      --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+    
+    ion-modal::part(backdrop) {
+      background: rgba(209, 213, 219);
+      opacity: 1;
+    }
+    
+    ion-modal ion-toolbar {
+      --background: rgba(1, 11, 102, 0.945);
+      --color: white;
     }

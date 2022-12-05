@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+// import { CallNumber } from '@awesome-cordova-plugins/call-number/ngx';
 import { MonserviceService } from '../monservice.service';
 
 @Component({
@@ -9,7 +10,8 @@ import { MonserviceService } from '../monservice.service';
 export class AccueilPage implements OnInit {
   trajetCour:any;
   loginData:any;
-  constructor(private monservice:MonserviceService) { }
+  searchText:any;
+  constructor(private monservice:MonserviceService ,) { }
 
   ngOnInit() {
     this.AlltrajetCours();
@@ -22,4 +24,14 @@ export class AccueilPage implements OnInit {
    
     })
   }
-}
+
+ 
+
+  appel(dat:any){
+    
+// this.callNumber.callNumber(dat, true)
+// .then(res => console.log('Launched dialer!', res))
+// .catch(err => console.log('Error launching dialer', err));
+//   }
+  
+}}

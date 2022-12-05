@@ -128,7 +128,11 @@
 // ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
 
 
-
+ion-header{
+    ion-toolbar{
+   --background: #002975;
+    }
+}
 ion-card-header {
     display: flex;
     flex-flow: column-reverse;
@@ -272,19 +276,7 @@ text-align: center;
   transform: translateY(-20px)
 }
 }
-.main-header {
-    height: 18vh;
-    width: 120%;
 
-    box-shadow: 0 15px 10px rgb(245, 161, 6);
-    border-radius: 0 0 50% 50%;
-   
-  
-    div {
-        transform: translateY(2vh);
-       
-    }
-}
 
 ion-slides{
     height: 130px;
@@ -318,3 +310,4 @@ ion-slides{
     background-clip: text;
     -webkit-text-fill-color: rgba(16, 240, 117, 0);
   }
+  

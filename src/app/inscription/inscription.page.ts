@@ -23,13 +23,14 @@ export class InscriptionPage implements OnInit {
     
     this.monservice.inscription(form.value).subscribe((result)=>{
       console.log(result)
-      
+      form.reset()
+      this.router.navigateByUrl('/coli')
+      this.ngOnInit()
       if(result){
-        form.reset()
+       
       //  location.replace("/auth");
      
-          this.router.navigate(['/accueil'])
-       this.ngOnInit()
+   
        
         
         

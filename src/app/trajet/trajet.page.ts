@@ -9,44 +9,31 @@ import { MonserviceService } from '../monservice.service';
   styleUrls: ['./trajet.page.scss'],
 })
 export class TrajetPage implements OnInit {
-  @ViewChild(IonModal)
-  modal!: IonModal;
+  isOpen = false;
 
-  message = 'This modal example uses triggers to automatically open a modal when the button is clicked.';
-  name!: string;
 
-  cancel() {
-    this.modal.dismiss(null, 'cancel');
-  }
-
-  confirm() {
-    this.modal.dismiss(this.name, 'confirm');
-  }
-
-  onWillDismiss(event: Event) {
-    const ev = event as CustomEvent<OverlayEventDetail<string>>;
-    if (ev.detail.role === 'confirm') {
-      this.message = `Hello, ${ev.detail.data}!`;
-    }
-  }
-
+  searchText:any;
   id:any;
   loginData:any;
   trajetParChauffeur:any;
   trajetArrive:any;
   listTrajet:any;
+  listTrajetcours:any;
+  trajet:any;
   constructor(private monservice:MonserviceService,private route:ActivatedRoute) { }
 
   ngOnInit() {
     this.loginData=JSON.parse(localStorage["isLogin"]);
     console.log(this.loginData)
-    // this.id = this.route.snapshot.params['id'];
-    // this.monservice.trajetByChauffeur(this.id).subscribe(data => {
-    //   this.trajetParChauffeur=data
-    //   console.log(this.trajetParChauffeur)
-    //  });
-    //  this.AlltrajetArriver();
+    this.id = this.route.snapshot.params['id'];
+    console.log(this.loginData.idUtilisateur)
+    this.monservice.utilisateurById(this.loginData.idUtilisateur).subscribe(data => {
+      this.trajetArrive=data
+      console.log(this.trajetArrive)
+     });
+   
     this.TrajetParChaufeur();
+    this.TrajetParChaufeurCour();
   }
 
   TrajetParChaufeur(){
@@ -56,7 +43,24 @@ export class TrajetPage implements OnInit {
     console.log(this.listTrajet)
     })
   }
+  TrajetParChaufeurCour(){
+    this.monservice.trajetByChauffeurCours(this.loginData.idUtilisateur).subscribe((data)=>{
+      console.log(this.loginData.idUtilisateur)
+    this.listTrajetcours= data
+    console.log(this.listTrajetcours)
+    })
+  }
 
+
+
+  detailsTrajet(dat:any){
+    this.monservice.trajetById(dat).subscribe((data)=>{
+    this.isOpen=true
+      this.trajet= data
+      console.log(this.trajet)
+      })
+
+}
   // AlltrajetArriver(){
   //   console.log("ok")
   //   this.monservice.getTrajetArrive().subscribe((data)=>{
@@ -65,5 +69,11 @@ export class TrajetPage implements OnInit {
    
   //   })
   // }
+  supprimer(id:any){
+    this.monservice.deleteTrajet(id).subscribe(() =>{
+
+      this.ngOnInit()
+    })
+  }
 
 }

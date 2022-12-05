@@ -2,6 +2,12 @@ ion-content {
     * {
         font-family: lato;
     }
+    
+    ion-header{
+        ion-toolbar{
+       --background: #002975;
+        }
+    }
     .main-header {
         height: 28vh;
         width: 120%;
@@ -21,6 +27,8 @@ ion-content {
             }
         }
     }
+
+    
     ion-row {
         margin-top: -60px;
         ion-col {

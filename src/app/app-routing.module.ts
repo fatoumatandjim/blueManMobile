@@ -17,6 +17,10 @@ const routes: Routes = [
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule )
   },
   {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule )
+  },
+  {
     path: 'inscription',
     loadChildren: () => import('./inscription/inscription.module').then( m => m.InscriptionPageModule)
   },
@@ -43,6 +47,30 @@ const routes: Routes = [
   {
     path: 'utlilisateur',
     loadChildren: () => import('./utlilisateur/utlilisateur.module').then( m => m.UtlilisateurPageModule) ,canActivate: [GuardGuard]
+  },
+  {
+    path: 'ajout',
+    loadChildren: () => import('./ajout/ajout.module').then( m => m.AjoutPageModule) , canActivate: [GuardGuard]
+  },
+  {
+    path: 'ajouter',
+    loadChildren: () => import('./ajouter/ajouter.module').then( m => m.AjouterPageModule) , canActivate: [GuardGuard]
+  },
+  {
+    path: 'modifie/:id',
+    loadChildren: () => import('./modifie/modifie.module').then( m => m.ModifiePageModule), canActivate: [GuardGuard]
+  },
+  {
+    path: 'colicour',
+    loadChildren: () => import('./colicour/colicour.module').then( m => m.ColicourPageModule)
+  },
+  {
+    path: 'trajetcours',
+    loadChildren: () => import('./trajetcours/trajetcours.module').then( m => m.TrajetcoursPageModule)
+  },
+  {
+    path: 'utilisateurcolicour',
+    loadChildren: () => import('./utilisateurcolicour/utilisateurcolicour.module').then( m => m.UtilisateurcolicourPageModule)
   }
 ];
 
