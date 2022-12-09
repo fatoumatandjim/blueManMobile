@@ -24,7 +24,10 @@ ion-header{
    --background: #002975;
     }
   }
-
+.icon{
+  display: flex;
+  justify-content: space-around;
+}
   .waviy span 
 {
 font-family: 'Alfa Slab One', cursive;

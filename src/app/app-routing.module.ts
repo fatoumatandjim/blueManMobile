@@ -71,6 +71,10 @@ const routes: Routes = [
   {
     path: 'utilisateurcolicour',
     loadChildren: () => import('./utilisateurcolicour/utilisateurcolicour.module').then( m => m.UtilisateurcolicourPageModule)
+  },
+  {
+    path: 'trajetattente',
+    loadChildren: () => import('./trajetattente/trajetattente.module').then( m => m.TrajetattentePageModule),canActivate: [GuardGuard]
   }
 ];
 

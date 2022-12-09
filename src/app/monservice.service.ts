@@ -60,6 +60,14 @@ export class MonserviceService {
   trajetByChauffeur(id:any){
     return this.http.get(this.urlTrajet+"TrajetByUtilisateur/"+id);
   }
+  
+  trajetAtttenteByChauffeur(id:any){
+    return this.http.get(this.urlTrajet+"TrajetAttenteByUtilisateur/"+id);
+  }
+
+  demareTrajet(id:any){
+    return this.http.delete(this.urlTrajet+"DemarrerTrajet/"+id);
+  }
   deleteTrajet(id:any){
     return this.http.delete(this.urlTrajet+"OutTrajet/"+id);
   }
@@ -72,6 +80,7 @@ export class MonserviceService {
   ajoutTrajet(id:any,idParc:any,data: any,){
     return this.http.post(this.urlTrajet+"AddTrajet/"+id+"/"+idParc,data);
   }
+  
   ajoutColi(id:any,data: any,){
     return this.http.post(this.urlColi+"AddColis/"+id,data);
   }
