@@ -6,12 +6,16 @@
       <ion-menu-button style="color: white" *ngIf="loginData.profil =='chauffeur'" ></ion-menu-button>
     </ion-buttons>
 
-    <ion-title style="color: white">BlueMan</ion-title>
+    <ion-title style="color: white">IkaSama</ion-title>
     
   </ion-toolbar>
 </ion-header>
 <ion-content class="ion-padding">
-
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed"*ngIf="loginData.profil =='magazinier'">
+    <ion-fab-button >
+      <ion-icon  routerLink="/magazinier"expand="block"name="list-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
   <div class="popover">
      <ion-searchbar [(ngModel)]="searchText"></ion-searchbar>
   </div>
@@ -44,7 +48,7 @@
           </ion-card-header>
           <ion-card-content>
             <img src="assets/img/v.jpg" />
-            <ion-icon  color="primary"name="call" ></ion-icon>
+            <ion-icon  color="primary"name="call"></ion-icon>
           </ion-card-content>
     
         </ion-card>
@@ -58,7 +62,7 @@
     <ion-col size="6" *ngFor="let item of trajetCour | filter:searchText">
       <ion-card class="ion-text-center"  style="margin:2% auto ;" >  
       
-         <ion-icon name="call-outline" style="color: rgba(22, 151, 238, 0.829);font-size: 20px;"></ion-icon>  
+         <ion-icon name="call-outline" (click)="appel(item.telephone)" style="color: rgba(22, 151, 238, 0.829);font-size: 20px;"></ion-icon>  
          <ion-label color="dark"  class="label" style="margin-left: 5%;color:rgb(6, 151, 235);font-size: 15px;"> {{item.utilisateur.telephone}}</ion-label>
         <div align="center">
           <ion-row >
@@ -66,9 +70,12 @@
           </ion-row>               
           <ion-row class="row"><ion-icon style="margin-left: 5%;color: rgb(6, 151, 235);font-size: 18px;" name="location-outline"></ion-icon>
             <!-- <ion-img src="..\assets\images\silhouette-de-forme-simple-de-coeur.png" style="width: 15px;"></ion-img> -->
-            <ion-label color="dark"  class="label" style="margin-left: 5%;color: black;font-size: 15px;">{{item.departArrive}}</ion-label><br><br>
+            <ion-label color="dark"  class="label" style="margin-left: 5%;color: black;font-size: 12px;">{{item.ref}}{{item.cercledepart.nomCercle}} /  {{item.cerclearrivee.nomCercle}}</ion-label><br><br>
+        </ion-row>
+        <ion-row>
            
-            <ion-icon style="margin-left: 5%;color: rgb(6, 151, 235) ;font-size: 18px;" name="time-outline"></ion-icon><ion-label color="dark" class="label"  style="margin-left: 5%;color: rgb(248, 168, 20);font-size: 15px;">08h30mn</ion-label> 
+            <ion-icon style="margin-left: 5%;color: rgb(6, 151, 235) ;font-size: 18px;" name="time-outline"></ion-icon>
+            <ion-label color="dark" class="label"  style="margin-left: 5%;color: rgb(248, 168, 20);font-size: 15px;">{{item.heureDep}}h{{item.minuteDep}}mn</ion-label> 
             <!-- <ion-img src="..\assets\images\panier (2).png" style="width: 20px;"></ion-img> -->
           </ion-row>
         </div>

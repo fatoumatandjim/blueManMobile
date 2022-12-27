@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title style="color: white">Ikasama</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button *ngIf="loginData.profil =='chauffeur'" style="color: white"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+ 
+</ion-header>
+
+
+ 
+  <ion-content [fullscreen]="true" class="ion-padding"><ion-icon   routerLink="/colicour" name="arrow-back-outline" style="color: rgb(23, 0, 77);font-size: 25px;"></ion-icon>
+ modifier
+ <div align="center">
+  <ion-avatar>
+    <img src="assets/img/blu.png" />
+  </ion-avatar>
+</div>
+     
+    <br><br>
+    <form #editForm="ngForm">
+     <ion-item>
+       <ion-label position="stacked"> description</ion-label>
+       <ion-input type="text" *ngIf="Coli" name="description" ngModel [(ngModel)]="Coli.description" ></ion-input>
+     </ion-item>
+     
+     <ion-item>
+       <ion-label position="stacked">ville</ion-label>
+       <ion-input type="text" *ngIf="Coli" name="prenom" ngModel [(ngModel)]="Coli.ville"></ion-input>
+     </ion-item>
+     <ion-item>
+      <ion-label position="stacked">telExp</ion-label>
+      <ion-input type="telephone" *ngIf="Coli" name="telExp" ngModel [(ngModel)]="Coli.telExp"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">telDest</ion-label>
+      <ion-input type="text" *ngIf="Coli" name="login" ngModel [(ngModel)]="Coli.telDest"></ion-input>
+    </ion-item>
+ 
+  <br><br>
+     <ion-button shape="round">Fermer</ion-button>
+     <ion-button type="submit" shape="round" style="float:right;" (click)="presentAlert()" >Ajouter</ion-button>
+    </form>
+   </ion-content>
+

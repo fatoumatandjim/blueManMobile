@@ -75,6 +75,22 @@ const routes: Routes = [
   {
     path: 'trajetattente',
     loadChildren: () => import('./trajetattente/trajetattente.module').then( m => m.TrajetattentePageModule),canActivate: [GuardGuard]
+  },
+  {
+    path: 'colimodifie/:id',
+    loadChildren: () => import('./colimodifie/colimodifie.module').then( m => m.ColimodifiePageModule)
+  },
+  {
+    path: 'trajetmodifie/:id',
+    loadChildren: () => import('./trajetmodifie/trajetmodifie.module').then( m => m.TrajetmodifiePageModule),canActivate: [GuardGuard]
+  },
+  {
+    path: 'trajetutilisateurattente',
+    loadChildren: () => import('./trajetutilisateurattente/trajetutilisateurattente.module').then( m => m.TrajetutilisateurattentePageModule),canActivate: [GuardGuard]
+  },
+  {
+    path: 'magazinier',
+    loadChildren: () => import('./magazinier/magazinier.module').then( m => m.MagazinierPageModule),canActivate: [GuardGuard]
   }
 ];
 

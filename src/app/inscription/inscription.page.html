@@ -2,7 +2,7 @@
 <ion-content>
   <div class="background-pic">
     <div class="background-filter">
-      <div class="shape"><img src="../..\assets\img\blu.png" /></div>
+      <div class="shape"><img src="../..\assets\img\blue.jpg" /></div>
   
       <ion-card>
         <ion-card-header>
@@ -23,9 +23,16 @@
           <ion-item>      <ion-icon color="primary" class="a" name="person"></ion-icon>
             <ion-input name="nom" ngModel type="text" placeholder="Entrer Votre nom" #nom="ngModel"></ion-input>
           </ion-item>
-          <ion-item>      <ion-icon color="primary" class="a" name="person"></ion-icon>
-            <ion-input name="telephone" ngModel type="text" placeholder="Entrer Votre telephone" #telephone="ngModel"></ion-input>
-          </ion-item>
+          <div >
+           
+            <ion-item lines="full"><ion-icon color="primary" class="a" name="call"></ion-icon>
+              <ion-input ngModel name="telephone" type="number" placeholder="Entrer tel" #telephone="ngModel" pattern="[0-9]{8,14}"></ion-input>
+            </ion-item>
+            <div style="font-size: 10px; color: red;" [hidden]="telephone.valid || telephone.pristine" class="alert alert-danger">
+              Respecter le Format svp : max 08 chiffres min 8chiffres
+            </div>
+            
+          </div>
           <ion-item>      <ion-icon  color="primary"name="mail"></ion-icon>
             <ion-input name="login" ngModel type="text" placeholder="Entrer Votre login" #login="ngModel"></ion-input>
           </ion-item>

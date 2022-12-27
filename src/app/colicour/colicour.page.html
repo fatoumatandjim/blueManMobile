@@ -6,7 +6,7 @@
       <ion-menu-button  style="color: white"></ion-menu-button>
     </ion-buttons>
 
-    <ion-title style="color: white">BlueMan</ion-title>
+    <ion-title style="color: white">Ikasama</ion-title>
     
   </ion-toolbar>
 </ion-header><br><br>
@@ -87,7 +87,7 @@
               <ion-item>
                 <ion-label>
                   <ion-text>trajet</ion-text>
-                  <p><ion-text color="dark">{{colicours.trajet.nom}}    </ion-text></p>
+                  <p><ion-text color="dark">{{colicours.trajet.ref}}{{colicours.trajet.cercledepart.nomCercle}} /  {{colicours.trajet.cerclearrivee.nomCercle}}     </ion-text></p>
                 </ion-label>
               </ion-item>
               <ion-item>
@@ -160,7 +160,7 @@
         <ion-card class="ion-text-center"  style="margin:2% auto ;"> 
           <ion-icon name="checkmark-circle-outline"  (click)="presentAlert(item.idColis)" style="margin-left: 85%;color: rgba(6, 128, 6, 0.623);font-size: 20px;"></ion-icon>   
           
-          <ion-icon name="checkmark-circle-outline"  (click)="presentAlert(item.idColis)" style="margin-left: 85%;color: rgba(6, 128, 6, 0.623);font-size: 20px;"></ion-icon>    
+          <ion-icon name="create-outline" routerLink="/colimodifie/{{item.idColis}}"  style="color: rgba(17, 0, 116, 0.623);font-size: 20px;float: left;margin-top:-20px;"></ion-icon>    
           <div align="center">
             <ion-row >
               <!-- <img src="assets/img/cc.png"alt="img" class="img" style="height: 120px;width: 100% ;"/>      -->
@@ -179,7 +179,7 @@
               <ion-icon   style="color: rgb(218, 149, 0);"  name="star-outline"></ion-icon>  
               <ion-icon   style="color:rgb(218, 149, 0);"  name="star-outline"></ion-icon>
               <ion-icon   style="color: rgb(218, 149, 0);"  name="star-outline"></ion-icon>
-              <ion-icon   style="color: rgb(218, 149, 0);"  name="star-outline"></ion-icon>
+     
             </ion-row>
           </div>
         </ion-card>

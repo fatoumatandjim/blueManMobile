@@ -75,7 +75,7 @@ export class ColicourPage implements OnInit {
       
     }
     supCofirm(idu: number){
-      this.monservice.deleteColie(idu).subscribe((data) =>{         
+      this.monservice.ChangecolieEtatMagazin(idu).subscribe((data) =>{         
         console.log('ok ok success');
         this.ngOnInit()
       })

@@ -8,7 +8,13 @@ import { MonserviceService } from '../monservice.service';
   styleUrls: ['./inscription.page.scss'],
 })
 export class InscriptionPage implements OnInit {
-
+  patternMax(inputLength: number, maxLength: number) {
+    return `${maxLength - inputLength} caracteres max`;
+  }
+  patternMin(inputLength: number, minLength: number) {
+    return `${minLength - inputLength} caracteres min`;
+  }
+  
   constructor(private router:Router,private monservice:MonserviceService) { }
 
   ngOnInit() {
@@ -24,7 +30,7 @@ export class InscriptionPage implements OnInit {
     this.monservice.inscription(form.value).subscribe((result)=>{
       console.log(result)
       form.reset()
-      this.router.navigateByUrl('/coli')
+      this.router.navigateByUrl('/login')
       this.ngOnInit()
       if(result){
        

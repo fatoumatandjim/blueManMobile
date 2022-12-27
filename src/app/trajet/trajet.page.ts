@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { IonModal } from '@ionic/angular';
+import { AlertController, IonModal } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
 import { MonserviceService } from '../monservice.service';
 @Component({
@@ -9,6 +9,10 @@ import { MonserviceService } from '../monservice.service';
   styleUrls: ['./trajet.page.scss'],
 })
 export class TrajetPage implements OnInit {
+
+
+
+
   isOpen = false;
 
 
@@ -20,7 +24,8 @@ export class TrajetPage implements OnInit {
   listTrajet:any;
   listTrajetcours:any;
   trajet:any;
-  constructor(private monservice:MonserviceService,private route:ActivatedRoute) { }
+  listTrajetArrive:any;
+  constructor(private monservice:MonserviceService,private route:ActivatedRoute,private alertController: AlertController) { }
 
   ngOnInit() {
     this.loginData=JSON.parse(localStorage["isLogin"]);
@@ -44,9 +49,9 @@ export class TrajetPage implements OnInit {
     })
   }
   TrajetParChaufeurCour(){
-    this.monservice.trajetByChauffeurCours(this.loginData.idUtilisateur).subscribe((data)=>{
+    this.monservice.trajetByChauffeurArrive(this.loginData.idUtilisateur).subscribe((data)=>{
       console.log(this.loginData.idUtilisateur)
-    this.listTrajetcours= data
+    this.listTrajetArrive= data
     console.log(this.listTrajetcours)
     })
   }
@@ -69,11 +74,36 @@ export class TrajetPage implements OnInit {
    
   //   })
   // }
-  supprimer(id:any){
-    this.monservice.deleteTrajet(id).subscribe(() =>{
+  supCofirm(id:any){
+    this.monservice.SupprimerTrajetParChauffeur(id).subscribe(() =>{
 
       this.ngOnInit()
     })
   }
+
+
+  async presentAlert(idu: number) {
+    const alert = await this.alertController.create({
+      header: 'vous etes sur de vouloir Supprimer cet Trajet?',
+      cssClass: 'custom-alert',
+      buttons: [
+        {
+          text: 'No',
+          cssClass: 'alert-button-cancel',
+          role: 'Cancel'
+        },
+        {
+          text: 'Yes',
+          cssClass: 'alert-button-confirm',
+          handler: () =>{
+            this.supCofirm(idu);
+          }
+
+        },
+      ],
+    });
+    alert.present()
+
+}
 
 }

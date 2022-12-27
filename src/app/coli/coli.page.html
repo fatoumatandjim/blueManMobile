@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button style="color: white"></ion-menu-button>
     </ion-buttons>
-    <ion-title style="color: white">BlueMan</ion-title>
+    <ion-title style="color: white">Ikasama</ion-title>
 
   </ion-toolbar>
 </ion-header>
@@ -15,7 +15,7 @@
 
 
   
-  <img src="assets/img/circulaire.png"  style="float:right;height: 30px;"  routerLink="/colicour"/>
+  <img src="assets/img/circulaire.png"  style="float:right;height: 30px;margin-right: 20px;"  routerLink="/colicour"/>
 
   
    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
@@ -23,70 +23,7 @@
     <ion-icon  routerLink="/ajouter"expand="block"name="add" ></ion-icon>
   </ion-fab-button>
 </ion-fab>
-<!-- <ion-modal trigger="open-modale" (willDismiss)="onWillDismiss($event)">
-  <ng-template>
-    <ion-header >
-      <ion-toolbar style="background-color: red">
-        <ion-buttons slot="start">
-          <ion-button (click)="cancel()">Cancel</ion-button>
-        </ion-buttons>
-        <ion-title>Colie</ion-title>
-        <ion-buttons slot="end">
-          <ion-button (click)="confirm()" [strong]="true">ajouter</ion-button>
-        </ion-buttons>
-      </ion-toolbar>
-    </ion-header><br><br>
-    <ion-content class="ion-padding">
-      <img src="assets/img/colie.png"/>
-      <ion-item>
-        <ion-label position="stacked">Nom</ion-label>
-        <ion-input type="text" ></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="stacked">No</ion-label>
-        <ion-input type="text" ></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="stacked">Magazinier</ion-label>
-        <ion-input type="text"  ></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="stacked">Destinataire</ion-label>
-        <ion-input type="text"  ></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="stacked">Telephone</ion-label>
-        <ion-input type="hours"  ></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="stacked">Date</ion-label>
-        <ion-input type="date" ></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="stacked">Description</ion-label>
-        <ion-input type="text" ></ion-input>
-      </ion-item>
-    </ion-content>
-  </ng-template>
-</ion-modal> -->
-  <!-- <ion-list lines="inset" [inset]="true"  >
-    <ion-item  color="primary">
-      <ion-label>Nom</ion-label>
-      <ion-label>No</ion-label>
-      <ion-label>Destinataire</ion-label>
-      <ion-label>action</ion-label>
-    </ion-item>
 
-    <ion-item lines="inset"   *ngFor="let item of listcoli" >
-      <ion-label>{{item.description}}</ion-label>
-      <ion-label>{{item.ref}}</ion-label>
-      <ion-label>item.magazin.nom</ion-label>
-      <ion-icon color="primary" name="pencil"></ion-icon>
-      <ion-icon color="warning"  name="eye"></ion-icon>
-      <ion-icon color="danger" name="trash"></ion-icon>
-    </ion-item>
-    
-  </ion-list> -->
 
  
 
@@ -167,7 +104,7 @@
               <ion-item>
                 <ion-label>
                   <ion-text>trajet</ion-text>
-                  <p><ion-text color="dark">{{coli.trajet.nom}}    </ion-text></p>
+                  <p><ion-text color="dark">{{coli.trajet.ref}}{{coli.trajet.cercledepart.nomCercle}} /  {{coli.trajet.cerclearrivee.nomCercle}}    </ion-text></p>
                 </ion-label>
               </ion-item>
               <ion-item>
@@ -238,11 +175,25 @@
       </ion-slides>
     </ion-row> -->
     <ion-searchbar [(ngModel)]="searchText"></ion-searchbar>
+    <ion-segment (ionChange)="segmentChanged($event)" >
+      <ion-segment-button value="livre">
+        <ion-label>livre</ion-label>
+        <ion-icon name="cube"></ion-icon>
+      </ion-segment-button>
   
+      <ion-segment-button value="magazin">
+        <ion-label>magazin</ion-label>
+        <ion-icon name="snow-outline"></ion-icon>     
+      </ion-segment-button>
+  
+    
+    </ion-segment>
+    <div *ngIf="selectedSegment=='livre'">
     <ion-row>
       <!-- <ion-col size="6" *ngFor="let item of listcoli | filter:searchText"> -->
       <ion-col size="6" *ngFor="let item of  listcoli | filter:searchText" >
         <ion-card class="ion-text-center"  style="margin:2% auto ;" > 
+         
           <div align="center">
             <ion-row >
               <img src="assets/img/cour.jpg"alt="img" (click)="detailsColie(item.idColis)"  class="img" style="height: 120px;width: 100% ;"/> 
@@ -263,7 +214,35 @@
         </ion-card>
           </ion-col>
         </ion-row>
+      </div>
+    <div *ngIf="selectedSegment=='magazin'">
+      <ion-row>
+        <!-- <ion-col size="6" *ngFor="let item of listcoli | filter:searchText"> -->
+        <ion-col size="6" *ngFor="let item of  listcolimagazin | filter:searchText" >
+          <ion-card class="ion-text-center"  style="margin:2% auto ;" > 
       
+            <div align="center">
+              <ion-row >
+                <img src="assets/img/cour.jpg"alt="img" (click)="detailsColie(item.idColis)"  class="img" style="height: 120px;width: 100% ;"/> 
+                <!-- <ion-button  style="display: none;"></ion-button>               -->
+              </ion-row>   <br>            
+              <ion-row class="row">
+                <!-- <ion-img src="..\assets\images\silhouette-de-forme-simple-de-coeur.png" style="width: 15px;"></ion-img> -->
+                <ion-label color="dark"  class="label" style="margin-left: 5%;color: rgb(2, 4, 100);font-size: 15px;">{{item.description}}</ion-label><br><br>
+               
+              
+                <!-- <ion-img src="..\assets\images\panier (2).png" style="width: 20px;"></ion-img> -->
+                <ion-icon   style="color: rgb(218, 149, 0);"  name="star-outline"></ion-icon>  
+                <ion-icon   style="color:rgb(218, 149, 0);"  name="star-outline"></ion-icon>
+                <ion-icon   style="color: rgb(218, 149, 0);"  name="star-outline"></ion-icon>
+                <ion-icon   style="color: rgb(218, 149, 0);"  name="star-outline"></ion-icon>
+              </ion-row>
+            </div>
+          </ion-card>
+            </ion-col>
+          </ion-row>
+
+      </div>
   </ion-grid>
   
   

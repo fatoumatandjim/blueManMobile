@@ -1,0 +1,15 @@
+ion-avatar {
+    width: 15vh;
+    height: 15vh;
+  
+    margin-bottom: 5px;
+    border: 7px solid rgba(255, 166, 0, 0.808);
+}
+ion-header{
+    ion-toolbar{
+   --background: #002975;
+    }
+}
+ion-button{
+    --background: #002975;
+}

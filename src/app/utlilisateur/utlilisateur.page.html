@@ -4,7 +4,7 @@
 <!-- <img src="../..\assets\img\haut.jpg" style="margin-left: 90px;"> -->
 
 
-    <ion-title style="color: white"> BlueMan</ion-title>
+    <ion-title style="color: white"> Ikasama</ion-title>
     
   </ion-toolbar>
 </ion-header><br><br>
@@ -15,7 +15,12 @@
   
   <img src="assets/img/circulaire.png" *ngIf="loginData.profil =='client'" routerLink="/utilisateurcolicour"  style="float:right;height: 30px;"  id="open-modal"/>
 
- 
+   <!-- <ion-icon  style="color: rgb(18, 0, 117);font-size: 30px; margin-left: 20px;"></ion-icon> -->
+   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon  routerLink="/trajetutilisateurattente"  expand="block"name="grid-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
   <h1 class="titleMenu">Liste Colie</h1>
   <div class="container">
     <ion-searchbar [(ngModel)]="searchText"></ion-searchbar>
@@ -37,7 +42,7 @@
     
     <ion-label>
       <!-- <h2>{{item.code}} <span style="float:right;color: rgb(20, 0, 109);" >{{item.telDest}}</span></h2>  -->
-    <h2>{{item.description}} <span style="float:right;color: rgb(20, 0, 109);" >{{item.trajet.departArrive}}</span></h2> 
+    <h2>{{item.description}} <span style="float:right;color: rgb(20, 0, 109);" >{{item.cercledepart.nomCercle}} /  {{item.cerclearrivee.nomCercle}}</span></h2> 
     <h2> <span style="float:right;color: rgb(44, 139, 6);font-size: 30px;" ><ion-icon name="checkmark-circle-outline"></ion-icon></span>
       <ion-icon   style="color: rgb(20, 0, 109);"  name="star-outline"></ion-icon>  
       <ion-icon   style="color:rgb(20, 0, 109);"  name="star-outline"></ion-icon>

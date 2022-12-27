@@ -1,34 +1,69 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title style="color: white">ajout</ion-title>
-    
+    <ion-title style="color: white">Ikasama</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content class="ion-padding"><ion-icon   routerLink="/trajet" name="arrow-back-outline" style="color: rgb(23, 0, 77);font-size: 25px;"></ion-icon>
   Ajouter Un Trajet
-
       <img src="assets/img/tt.jpg"/>
-   
-   
   <br><br>
   <form (ngSubmit)="onSubmit(form)" #form="ngForm">
-   <ion-item>
-     <ion-label position="stacked">Ville de depart</ion-label>
-     <ion-input type="text" name="departArrive" ngModel #departArrive="ngModel" ></ion-input>
-   </ion-item>
-   <ion-item>
-    <ion-label position="stacked">Ville de d'arrive</ion-label>
-    <ion-input type="text" name="departArrive" ngModel #departArrive="ngModel" ></ion-input>
+  
+  <ion-item>
+    <ion-label position="floating">Région de depart : <b>{{loginData?.cercleRegion?.nomCercle}}</b></ion-label>
+    <ion-select name="regiondepart" *ngIf="region" (ionChange)="Change()" [(ngModel)]="selectedRegion">
+      <ion-select-option *ngFor="let item of region" value="{{item.nomRegion}}">{{item?.nomRegion}}</ion-select-option>
+    </ion-select>
   </ion-item>
-   <ion-item>
-     <ion-label position="stacked">heureDep</ion-label>
-     <ion-input type="text`ju" name="heureDep" ngModel #heureDep="ngModel"></ion-input>
-   </ion-item>
-   <ion-item>
-    <ion-label position="stacked">heure de Fin</ion-label>
-    <ion-input type="text" name="heureDep" ngModel #heureDep="ngModel"></ion-input>
+  <ion-item  *ngIf="ListCercle" >
+    <ion-label position="floating">Cercle de depart</ion-label>
+    <ion-select name="cercledepart" ngModel #cercledepart="ngModel">
+      <!-- <ion-select-option selected value="">--select region--</ion-select-option> -->
+      <ion-select-option *ngFor="let item of ListCercle" [value]="item">{{item?.nomCercle}}</ion-select-option>
+    
+    </ion-select>
   </ion-item>
-   
+  <ion-item>
+    <ion-label position="floating">Région d'arriver : <b></b></ion-label>
+    <ion-select name="regionarrivee" *ngIf="region" (ionChange)="Changearrive()" [(ngModel)]="selectedRegionarrive">
+      <ion-select-option *ngFor="let item of region" value="{{item.nomRegion}}">{{item?.nomRegion}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item  *ngIf="ListCerclearrive" >
+    <ion-label position="floating">Cercle d'arrive</ion-label>
+    <ion-select name="cerclearrivee"  ngModel #cerclearrivee="ngModel">
+      <!-- <ion-select-option selected value="">--select region--</ion-select-option> -->
+      <ion-select-option *ngFor="let item of ListCerclearrive" [value]="item">{{item?.nomCercle}}</ion-select-option>
+    
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">village Depart</ion-label>
+    <ion-input type="text" name="villagedepart" ngModel #villagearrivee="ngModel"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">village arrive</ion-label>
+    <ion-input type="text" name="villagearrivee" ngModel #villagearrivee="ngModel"></ion-input>
+  </ion-item>
+    <span class="input-group-text" id="inputGroup-sizing-default">HeureDepart</span> 
+  <ion-item>
+    <div class="input-group mb-3 flex">
+      <input type="number" class="form-control a" name="heureDep" ngModel placeholder="heure">
+      <input type="number" class="form-control b" name="minuteDep" ngModel placeholder="minutes">
+    </div>
+   </ion-item><br>
+   <span class="input-group-text" id="inputGroup-sizing-default">HeureArrivee</span>
+   <ion-item>
+    <div class="input-group mb-3">
+      <input type="number" class="form-control a" name="heureArrivee"  ngModel placeholder="heure">
+      <input type="number" class="form-control b" name="minuteArrivee" ngModel placeholder="minutes">
+    </div>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">date</ion-label>
+    <ion-input type="date" name="date" ngModel #date="ngModel"></ion-input>
+  </ion-item>
    <ion-item>
     <option value="">--Selectionner un parc--</option>
     <ion-select placeholder="Select parc"   name="idParc" ngModel #parc="ngModel">

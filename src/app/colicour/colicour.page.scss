@@ -10,7 +10,7 @@ ion-modal {
   }
   
   ion-modal ion-toolbar {
-    --background: rgb(14, 16, 144);
+    --background: rgb(0, 2, 150);
     --color: white;
   }
   ion-avatar {
@@ -77,4 +77,12 @@ button.alert-button.alert-button-confirm {
 .ios button.alert-button.alert-button-confirm {
   border-bottom-right-radius: 13px;
   border-top-right-radius: 13px;
+}
+ion-row{
+  ion-col{
+    ion-card{
+      max-height: 150px;
+      max-width: 150px;
+    }
+  }
 }

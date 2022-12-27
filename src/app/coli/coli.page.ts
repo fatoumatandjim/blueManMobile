@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { IonModal } from '@ionic/angular';
+import { AlertController, IonModal } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
 import { MonserviceService } from '../monservice.service';
 import { AnimationController } from '@ionic/angular';
@@ -30,9 +30,9 @@ export class ColiPage implements OnInit {
       this.message = `Hello, ${ev.detail.data}!`;
     }
   }
-
-  
-  constructor(private monservice:MonserviceService,private route:ActivatedRoute,private animationCtrl: AnimationController) { 
+  selectedSegment: string = 'livre'
+  listcolimagazin:any;
+  constructor(private monservice:MonserviceService,private route:ActivatedRoute,private animationCtrl: AnimationController,private alertController: AlertController) { 
     const button = document.getElementById('open-custom-dialog');
 
     button?.addEventListener('click', function handleClick(event) {
@@ -62,7 +62,13 @@ export class ColiPage implements OnInit {
      });
     
     this.coliParChauffeurArrive();
+    this.coliParChauffeurMagazin()
 
+  }
+
+  segmentChanged(event: any) {
+    console.log(event.target.value);
+    this.selectedSegment = event.target.value
   }
  
   coliParChauffeurArrive(){
@@ -70,6 +76,14 @@ export class ColiPage implements OnInit {
     
     this.listcoli= data
     console.log(this.listcoli)
+    })
+  }
+
+  coliParChauffeurMagazin(){
+    this.monservice.colieByChauffeurMagazin(this.loginData.idUtilisateur).subscribe((data)=>{
+    
+    this.listcolimagazin= data
+    console.log(this.listcolimagazin)
     })
   }
   detailsColie(dat:any){
@@ -81,6 +95,37 @@ export class ColiPage implements OnInit {
       
       })
 
+}
+
+supCofirm(idu: number){
+  this.monservice.SupprimerColieParChauffeur(idu).subscribe((data) =>{         
+    console.log('ok ok success');
+    this.ngOnInit()
+  })
+}
+
+async presentAlert(idu: number) {
+  const alert = await this.alertController.create({
+    header: 'Are you sure?',
+    cssClass: 'custom-alert',
+    buttons: [
+      {
+        text: 'No',
+        cssClass: 'alert-button-cancel',
+        role: 'Cancel'
+      },
+      {
+        text: 'Yes',
+        cssClass: 'alert-button-confirm',
+        handler: () =>{
+          this.supCofirm(idu);
+        }
+
+      },
+    ],
+  });
+
+  await alert.present();
 }
 
 

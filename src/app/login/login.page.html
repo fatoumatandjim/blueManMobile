@@ -9,7 +9,7 @@
 <ion-card >
   <div align="center">
     <ion-avatar>
-      <img src="assets/img/blu.png"/>
+      <img src="assets/img/blue.jpg" />
     </ion-avatar>
   </div>
          <h1 class="titleMenu">Login</h1>
@@ -18,15 +18,19 @@
             <ion-item><ion-icon  color="primary"name="mail"></ion-icon>
              <ion-input name="login"  type="text" placeholder="Entrer login" ngModel></ion-input>
             </ion-item><br>
-            <ion-item><ion-icon  color="primary"name="thermometer"></ion-icon>
+            <ion-item><ion-icon    [name]="type ? 'eye-off-outline' : 'eye-outline'" 
+              slot="start" 
+              color="dark" 
+              (click)="changeType()"  color="primary"name="thermometer"></ion-icon>
+             
               <ion-input name="password"  type="password"
-              placeholder="Entrer mot de passe" ngModel></ion-input>
+              placeholder="Entrer mot de passe"  [type]="type ? 'password' : 'text'" ngModel></ion-input>
             </ion-item>
 
             <div class="bottom-section">
               <ion-button type="submit" class="c"  >Connexion</ion-button>
               <ion-button class="b" (click)="inscription()">inscription</ion-button>
-          
+       
             </div>
           </form>
          </ion-card-content>

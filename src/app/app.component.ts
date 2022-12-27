@@ -11,7 +11,7 @@ export class AppComponent {
     { title: 'profil', url: '/profil', icon: 'person' },
     { title: 'Colie', url: '/coli', icon: 'cube' },
     { title: 'Trajet', url: '/trajet', icon: 'thermometer' },
-    { title: 'Trash', url: '/folder/Trash', icon: 'trash' },
+
  
   ];
   public labels = [];

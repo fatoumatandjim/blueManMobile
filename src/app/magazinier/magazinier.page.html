@@ -1,0 +1,102 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+    
+    </ion-buttons>
+    <ion-title style="color: white"  >IkaSama</ion-title>
+
+  </ion-toolbar>
+
+</ion-header>
+<ion-fab>
+  <ion-fab-button style="margin-left: 280px;">
+    <ion-icon  routerLink="/profil" name="person"  expand="block" ></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+<ion-content><br>
+ 
+  <ion-icon   routerLink="/accueil" name="arrow-back-outline" style="color: rgb(23, 0, 77);font-size: 25px;"></ion-icon>
+  <ion-segment (ionChange)="segmentChanged($event)" >
+    <ion-segment-button value="Arrive">
+      <ion-label>Arrive</ion-label>
+      <ion-icon name="cube"></ion-icon>
+    </ion-segment-button>
+
+    <ion-segment-button value="livre">
+      <ion-label>Livre</ion-label>
+      <ion-icon name="snow-outline"></ion-icon>     
+    </ion-segment-button>
+    <!-- <ion-icon style="margin-right: 20px;color: rgb(26, 0, 97);font-size: 30px;" routerLink="/profil" name="person"></ion-icon> -->
+ 
+  </ion-segment>
+  
+    <div *ngIf="selectedSegment=='Arrive'">
+    <ion-card  *ngFor="let item of listcoliMagazin | filter:searchText">
+   
+        
+      <ion-item >
+      
+      <ion-thumbnail slot="start">
+        <ion-avatar>
+          <img src="assets/img/coli.png"/>
+        </ion-avatar>
+       </ion-thumbnail>
+  
+      
+      
+      <ion-label>
+        <!-- <h2>{{item.code}} <span style="float:right;color: rgb(20, 0, 109);" >{{item.telDest}}</span></h2>  -->
+      <h2>{{item.description}}<span style="float:right;color: rgb(20, 0, 109);" >{{item.ref}}</span></h2> 
+      <h2> <span style="float:right;color: rgb(44, 139, 6);font-size: 30px;" ><ion-icon  (click)="presentAlert(item.idColis)" name="checkmark-circle-outline"></ion-icon></span>
+        <ion-icon   style="color: rgb(20, 0, 109);"  name="star-outline"></ion-icon>  
+        <ion-icon   style="color:rgb(20, 0, 109);"  name="star-outline"></ion-icon>
+        <ion-icon   style="color: rgb(20, 0, 109);"  name="star-outline"></ion-icon>
+        <ion-icon   style="color: rgb(20, 0, 109);"  name="star-outline"></ion-icon>
+      
+      
+      </h2>
+  
+    </ion-label>
+    </ion-item> <br>
+  
+      
+  
+  </ion-card>
+</div>
+<div *ngIf="selectedSegment=='livre'">
+  <ion-card *ngFor="let item of listcoliMagazinLivrer | filter:searchText">
+   
+        
+    <ion-item >
+    
+    <ion-thumbnail slot="start">
+      <ion-avatar>
+        <img src="assets/img/coli.png"/>
+      </ion-avatar>
+     </ion-thumbnail>
+
+    
+    
+    <ion-label>
+      <!-- <h2>{{item.code}} <span style="float:right;color: rgb(20, 0, 109);" >{{item.telDest}}</span></h2>  -->
+    <h2>{{item.description}}<span style="float:right;color: rgb(20, 0, 109);" ></span></h2> 
+    <h2> <span style="float:right;color: rgb(139, 26, 6);font-size: 30px;" ><ion-icon (click)="presentAlert(item.idColis)"  name="trash-outline"></ion-icon></span>
+      <ion-icon   style="color: rgb(20, 0, 109);"  name="star-outline"></ion-icon>  
+      <ion-icon   style="color:rgb(20, 0, 109);"  name="star-outline"></ion-icon>
+      <ion-icon   style="color: rgb(20, 0, 109);"  name="star-outline"></ion-icon>
+      <ion-icon   style="color: rgb(20, 0, 109);"  name="star-outline"></ion-icon>
+    
+    
+    </h2>
+
+  </ion-label>
+  </ion-item> <br>
+
+    
+
+</ion-card>
+
+</div>
+
+
+</ion-content>

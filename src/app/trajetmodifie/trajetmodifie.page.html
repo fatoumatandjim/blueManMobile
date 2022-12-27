@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title style="color: white">Ikasama</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button *ngIf="loginData.profil =='chauffeur'" style="color: white"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+ 
+</ion-header>
+<ion-content [fullscreen]="true" class="ion-padding"><ion-icon   routerLink="/trajetattente" name="arrow-back-outline" style="color: rgb(23, 0, 77);font-size: 25px;"></ion-icon>
+ modifier
+ <div align="center">
+  <ion-avatar>
+    <img src="assets/img/blu.png" />
+  </ion-avatar>
+</div>
+     
+    <br><br>
+    <form #editForm="ngForm">
+      <ion-item>
+        <ion-label position="floating">Région de depart : <b>{{loginData?.cercleRegion?.nomCercle}}</b></ion-label>
+        <ion-select name="cercledepart" *ngIf="region" (ionChange)="Change()" [(ngModel)]="selectedRegion">
+          <ion-select-option *ngFor="let item of region" value="{{item.nomRegion}}">{{item?.nomRegion}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item  *ngIf="ListCercle" >
+        <ion-label position="floating">Cercle de depart</ion-label>
+        <ion-select name="cercledepart" [(ngModel)]="trajet.cercledepart">
+          <!-- <ion-select-option selected value="">--select region--</ion-select-option> -->
+          <ion-select-option *ngFor="let item of ListCercle" [value]="item">{{item?.nomCercle}}</ion-select-option>
+        
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Région d'arriver : <b></b></ion-label>
+        <ion-select name="bama" *ngIf="region" (ionChange)="Changearrive()" [(ngModel)]="selectedRegionarrive">
+          <ion-select-option *ngFor="let item of region" value="{{item.nomRegion}}">{{item?.nomRegion}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item  *ngIf="ListCerclearrive" >
+        <ion-label position="floating">Cercle d'arrive</ion-label>
+        <ion-select name="cerclearrivee" [(ngModel)]="trajet.cerclearrivee">
+          <!-- <ion-select-option selected value="">--select region--</ion-select-option> -->
+          <ion-select-option *ngFor="let item of ListCerclearrive" [value]="item">{{item?.nomCercle}}</ion-select-option>
+        
+        </ion-select>
+      </ion-item>
+     <ion-item>
+       <ion-label position="stacked"> Village depart/Arrive </ion-label>
+       <ion-input type="text" *ngIf="trajet" name="depart" ngModel [(ngModel)]="trajet.depart" ></ion-input>
+     </ion-item>
+     <ion-item>
+      <ion-label position="stacked"> Village depart/Arrive </ion-label>
+      <ion-input type="text" *ngIf="trajet" name="depart" ngModel [(ngModel)]="trajet.depart" ></ion-input>
+    </ion-item>
+     <ion-item>
+      <ion-label position="stacked">heureDep</ion-label>
+      <ion-input type="telephone" *ngIf="trajet" name="heureDep" ngModel [(ngModel)]="trajet.heureDep"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">date</ion-label>
+      <ion-input type="text" *ngIf="trajet" name="date" ngModel [(ngModel)]="trajet.date"></ion-input>
+    </ion-item>
+ 
+  <br><br>
+     <ion-button shape="round">Fermer</ion-button>
+     <ion-button type="submit" shape="round" style="float:right;" (click)="presentAlert()" >Ajouter</ion-button>
+    </form>
+   </ion-content>
+

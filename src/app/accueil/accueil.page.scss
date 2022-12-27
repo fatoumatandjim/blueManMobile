@@ -125,8 +125,12 @@
 
 
 
-// ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-
+//
+ion-fab{
+    ion-fab-button{
+     --background: #002975;
+    }
+  }
 
 ion-header{
     ion-toolbar{
@@ -150,8 +154,8 @@ ion-slides {
     ion-card {
         display: flex;
         flex-flow: column-reverse;
-        height: 150px;
-        width: 150px;
+        max-height: 150px;
+        max-width: 150px;
         border-radius: 10px;
         ion-card-header {
             display: flex;

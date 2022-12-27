@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button style="color: white"></ion-menu-button>
     </ion-buttons>
-    <ion-title style="color: white">BlueMan</ion-title>
+    <ion-title style="color: white">Ikasama</ion-title>
 
   </ion-toolbar>
 </ion-header>
@@ -19,39 +19,48 @@
      
     <br><br>
     <form (ngSubmit)="onSubmit(form)" #form="ngForm">
-     <ion-item>
+     <ion-item lines="full">
        <ion-label position="stacked"> description</ion-label>
        <ion-input type="text" name="description" ngModel #description="ngModel" ></ion-input>
      </ion-item>
-     
-  
-     <ion-item>
+     <div >
       <ion-label position="stacked">telExp</ion-label>
-      <ion-input type="telephone" name="telExp" ngModel #telExp="ngModel"></ion-input>
-    </ion-item>
-    <ion-item>
+      <ion-item lines="full">
+        <ion-input ngModel name="telExp" type="number" placeholder="Entrer tel" #telExp="ngModel" pattern="[0-9]{8,14}"></ion-input>
+      </ion-item>
+      <div style="font-size: 10px; color: red;" [hidden]="telExp.valid || telExp.pristine" class="alert alert-danger">
+        Doit Correspondre aux numero d'un utilisateur max 08 chiffres min 8chiffres 
+      </div>
+      
+    </div>
+  
+    <div >
       <ion-label position="stacked">telDest</ion-label>
-      <ion-input type="text" name="telExp" ngModel #telExp="ngModel"></ion-input>
-    </ion-item>
+      <ion-item lines="full">
+        <ion-input ngModel name="telDest" type="number" placeholder="Entrer tel" #telDest="ngModel" pattern="[0-9]{8,14}"></ion-input>
+      </ion-item>
+      <div style="font-size: 10px; color: red;" [hidden]="telDest.valid || telDest.pristine" class="alert alert-danger">
+        Respecter le Format svp : max 08 chiffres min 8chiffres
+      </div>
+      
+    </div>
+ 
 
-     <ion-item>
-      <option value="">--Selectionner un trajet--</option>
-      <ion-select placeholder="Select Trajet"   name="idTrajet" ngModel #parc="ngModel">
-        <ion-select-option  *ngFor="let item of trajet" value="{{item.idTrajet}}">{{item.departArrive}}  {{item.code}}</ion-select-option>
+     <!-- <ion-item>
+      <option value="">-- trajet attente--</option>
+      <ion-select placeholder="Select Trajet"   name="idTrajet" ngModel #idTrajet="ngModel">
+        <ion-select-option  *ngFor="let item of trajet" value="{{item.idTrajet}}">{{trajet.ref}} {{item.cercledepart.nomCercle}} /  {{item.cerclearrivee.nomCercle}}   </ion-select-option>
+       
+      </ion-select>
+    </ion-item> -->
+    
+    <ion-item>
+      <option value="">-- trajetCours--</option>
+      <ion-select placeholder="Select Trajet"   name="idTrajet" ngModel #idTrajet="ngModel">
+        <ion-select-option  *ngFor="let item of trajetcour" value="{{item.idTrajet}}">{{item.ref}} {{item.cercledepart.nomCercle}} /  {{item.cerclearrivee.nomCercle}}   </ion-select-option>
        
       </ion-select>
     </ion-item>
-     <!-- <ion-item>
-      <div class="row mb-3">
-       <div class="form-group ">
-           <label>Trajet</label>
-           <select id="profil" class="form-control" name="idUtilisateur" ngModel #parc="ngModel">
- <option value="">--Selectionner un Chauffeur--</option>
- <option *ngFor="let item of trajet" value="{{item.idTrajet}}">{{item.departArrive}}</option>
- </select>
-       </div>
-   </div>
-    </ion-item> -->
      
   <br><br>
      <ion-button shape="round">Fermer</ion-button>
