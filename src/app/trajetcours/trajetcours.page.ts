@@ -55,7 +55,7 @@ export class TrajetcoursPage implements OnInit {
 
   async presentAlert(idu: number) {
     const alert = await this.alertController.create({
-      header: 'Are you sure?',
+      header: 'etes vous sur?',
       cssClass: 'custom-alert',
       buttons: [
         {

@@ -57,7 +57,7 @@
     <ion-item>
       <option value="">-- trajetCours--</option>
       <ion-select placeholder="Select Trajet"   name="idTrajet" ngModel #idTrajet="ngModel">
-        <ion-select-option  *ngFor="let item of trajetcour" value="{{item.idTrajet}}">{{item.ref}} {{item.cercledepart.nomCercle}} /  {{item.cerclearrivee.nomCercle}}   </ion-select-option>
+        <ion-select-option  *ngFor="let item of listTrajet" value="{{item.idTrajet}}">{{item.ref}} {{item.cercledepart.nomCercle}} /  {{item.cerclearrivee.nomCercle}}   </ion-select-option>
        
       </ion-select>
     </ion-item>

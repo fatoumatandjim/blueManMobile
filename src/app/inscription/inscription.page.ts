@@ -14,6 +14,7 @@ export class InscriptionPage implements OnInit {
   patternMin(inputLength: number, minLength: number) {
     return `${minLength - inputLength} caracteres min`;
   }
+  type = true;
   
   constructor(private router:Router,private monservice:MonserviceService) { }
 
@@ -47,5 +48,8 @@ export class InscriptionPage implements OnInit {
     })
 
 
+}
+changeType() {
+  this.type = !this.type;
 }
 }

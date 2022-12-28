@@ -14,6 +14,7 @@ export class AjouterPage implements OnInit {
   loginData:any;
   id:any;
   trajetcour:any;
+  listTrajet:any;
   patternMax(inputLength: number, maxLength: number) {
     return `${maxLength - inputLength} caracteres max`;
   }
@@ -32,7 +33,7 @@ export class AjouterPage implements OnInit {
       
      });
 // this.allTrajet();
-  this.allTrajetcour();
+  this.TrajetParChaufeur();
   }
   // allTrajet(){
    
@@ -42,14 +43,25 @@ export class AjouterPage implements OnInit {
    
   //   })
   // }
-  allTrajetcour(){
-   
-    this.monservice.getTrajetcour().subscribe((data)=>{
-      console.log(data)
-      this.trajetcour= data
-   
+
+
+
+  TrajetParChaufeur(){
+    this.monservice.trajetByChauffeur(this.loginData.idUtilisateur).subscribe((data)=>{
+      console.log(this.loginData.idUtilisateur)
+    this.listTrajet= data
+    console.log(this.listTrajet)
     })
   }
+
+  // allTrajetcour(){
+   
+  //   this.monservice.getTrajetcour().subscribe((data)=>{
+  //     console.log(data)
+  //     this.trajetcour= data
+   
+  //   })
+  // }
   onSubmit(form:NgForm){
     // console.log(form.value)
     this.monservice.ajoutColi(form.value.idTrajet,form.value).subscribe((data)=>{

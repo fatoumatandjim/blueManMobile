@@ -36,11 +36,19 @@
           <ion-item>      <ion-icon  color="primary"name="mail"></ion-icon>
             <ion-input name="login" ngModel type="text" placeholder="Entrer Votre login" #login="ngModel"></ion-input>
           </ion-item>
-
-          <ion-item>   <ion-icon  color="primary"name="thermometer"></ion-icon>
-            <ion-input name="password" ngModel type="text" placeholder="Entrer Votre password" #password="ngModel"></ion-input>
+          <ion-item lines="full">
+            <ion-icon 
+              [name]="type ? 'eye' : 'eye-off'" 
+              slot="start" 
+              color="dark" 
+              (click)="changeType()">
+            </ion-icon>
+            <ion-input name="password" ngModel type="password"
+              placeholder="Entrer mot de passe" #password="ngModel" pattern="[a-z0-9._%+-]{4,10}"></ion-input>
           </ion-item>
-  
+          <div   style="font-size:10px; color: orangered;" [hidden]="password.valid || password.pristine" class="alert alert-danger">
+            Respecter le Format svp : min 6 caracteres max 8 caracteres
+        </div>
           <div class="bottom-section" >
             <ion-button class="a"type="submit">inscrire</ion-button>
        

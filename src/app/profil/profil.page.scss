@@ -2,7 +2,11 @@ ion-content {
     * {
         font-family: lato;
     }
-    
+    ion-fab{
+        ion-fab-button{
+         --background: #002975;
+        }
+      }
     ion-header{
         ion-toolbar{
        --background: #002975;

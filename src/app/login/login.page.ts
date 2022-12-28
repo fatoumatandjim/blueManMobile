@@ -10,6 +10,7 @@ import { LoadingController, ToastController } from '@ionic/angular';
 })
 export class LoginPage implements OnInit {
   loginInfo :any;
+    showPassword = false;
   
   type = true;
   submitted = false;
