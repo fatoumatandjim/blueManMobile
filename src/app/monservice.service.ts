@@ -4,11 +4,11 @@ import { HttpClient, HttpErrorResponse} from '@angular/common/http';
   providedIn: 'root'
 })
 export class MonserviceService {
-  url='http://  192.168.1.21:8080/api/users/';
-  urlTrajet='http://  192.168.1.21:8080/api/trajet/';
-  urlColi='http://  192.168.1.21:8080/api/colis/';
-  urlPark='http://  192.168.1.21:8080/api/parc/';
-  urlRegion='http://  192.168.1.21:8080/api/';
+  url='http://192.168.1.21:8080/api/users/';
+  urlTrajet='http://192.168.1.21:8080/api/trajet/';
+  urlColi='http://192.168.1.21:8080/api/colis/';
+  urlPark='http://192.168.1.21:8080/api/parc/';
+  urlRegion='http://192.168.1.21:8080/api/';
   constructor(private http:HttpClient) { }
 
   getCercleByregion(region: any){
