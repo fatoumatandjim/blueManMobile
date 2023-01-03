@@ -10,7 +10,7 @@ export class MonserviceService {
   urlPark='http://192.168.1.21:8080/api/parc/';
   urlRegion='http://192.168.1.21:8080/api/';
   constructor(private http:HttpClient) { }
-
+  
   getCercleByregion(region: any){
     return this.http.get(this.urlRegion +"CercleByRegion/"+ region);
   }
