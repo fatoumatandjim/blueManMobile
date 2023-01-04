@@ -4,13 +4,13 @@ import { HttpClient, HttpErrorResponse} from '@angular/common/http';
   providedIn: 'root'
 })
 export class MonserviceService {
-  url='http://192.168.1.21:8080/api/users/';
-  urlTrajet='http://192.168.1.21:8080/api/trajet/';
-  urlColi='http://192.168.1.21:8080/api/colis/';
-  urlPark='http://192.168.1.21:8080/api/parc/';
-  urlRegion='http://192.168.1.21:8080/api/';
+  url='http://bludman.us-east-2.elasticbeanstalk.com/api/users/';
+  urlTrajet='http://bludman.us-east-2.elasticbeanstalk.com/api/trajet/';
+  urlColi='http://bludman.us-east-2.elasticbeanstalk.com/api/colis/';
+  urlPark='http://bludman.us-east-2.elasticbeanstalk.com/api/parc/';
+  urlRegion='http://bludman.us-east-2.elasticbeanstalk.com/api/';
   constructor(private http:HttpClient) { }
-  
+
   getCercleByregion(region: any){
     return this.http.get(this.urlRegion +"CercleByRegion/"+ region);
   }
